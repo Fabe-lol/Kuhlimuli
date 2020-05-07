@@ -10,46 +10,60 @@
         android:id="@+id/Kuhnummer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:background="@drawable/cusomborder1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.005"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Überschrift"
-        tools:layout_editor_absoluteX="99dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/Überschrift"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="294dp"
+        android:layout_height="75dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="Tierbehandlung"
+        android:textColor="#000000"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/Behandlungsmethode"
-        android:layout_width="405dp"
-        android:layout_height="38dp"
-        app:layout_constraintTop_toBottomOf="@+id/Kuhnummer"
-        tools:layout_editor_absoluteX="1dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/fromDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
         android:ems="10"
         android:inputType="date"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="143dp" />
+        android:background="@drawable/cusomborder1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.832" />
 
     <EditText
         android:id="@+id/toDete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:background="@drawable/cusomborder1"
         android:ems="10"
         android:inputType="date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/fromDate"
-        tools:layout_editor_absoluteY="143dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.832" />
 
     <Button
         android:id="@+id/Save"
@@ -57,8 +71,67 @@
         android:layout_height="wrap_content"
         android:onClick="sendMessage"
         android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="301dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.948" />
+
+    <TextView
+        android:id="@+id/BeschreibungKuhnummer"
+        android:layout_width="232dp"
+        android:layout_height="33dp"
+        android:text="Nummer Ohrmarke:"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/Kuhnummer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Überschrift"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <CheckBox
+        android:id="@+id/Auswahl1"
+        android:layout_width="303dp"
+        android:layout_height="26dp"
+        android:text="Behandlung 1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Kuhnummer"
+        app:layout_constraintVertical_bias="0.152" />
+
+    <TextView
+        android:id="@+id/vonDateText"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:text="Von:"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/fromDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.002"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <TextView
+        android:id="@+id/bisDateText"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:text="Bis:"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/toDete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
