@@ -1,29 +1,21 @@
 package com.example.kuhmuh
 
 import android.app.DatePickerDialog
-import android.content.Intent
+import android.app.DatePickerDialog.OnDateSetListener
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.format.DateFormat.is24HourFormat
 import android.util.Log
 import android.view.View
-import android.widget.EditText
 import android.widget.TextView
-import android.widget.TimePicker
-import java.text.DateFormat
+import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
-const val EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE"
-
-class MainActivity : AppCompatActivity() {
+/*class MainActivity : AppCompatActivity() {
     private var mDisplayDate: TextView? = null
-    private var onDateSetListener: DatePickerDialog.OnDateSetListener? = null
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private var onDateSetListener: OnDateSetListener? = null
+    override fun onCreate(savedInstandeState: Bundle?) {
+        super.onCreate(savedInstandeState)
         setContentView(R.layout.activity_main)
         mDisplayDate = findViewById<View>(R.id.tvDate) as TextView
         mDisplayDate!!.setOnClickListener {
@@ -37,29 +29,19 @@ class MainActivity : AppCompatActivity() {
                 onDateSetListener,
                 year, month, day
             )
-            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.window
+                .setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialog.show()
         }
-        onDateSetListener = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+        onDateSetListener = OnDateSetListener { view, year, month, dayOfMonth ->
             Log.d(
-                TAG,
+                MainActivity.Companion.TAG,
                 "onDateSet: date: $year/$month/$dayOfMonth"
             )
         }
     }
+
     companion object {
         private const val TAG = "MainActivity"
     }
-
-    /** Called when the user taps the Send button */
-    fun sendMessage(view: View) {
-        val editText = findViewById<EditText>(R.id.Kuhnummer)
-        val message = editText.text.toString()
-        val intent = Intent(this, DisplayMessageActivity::class.java).apply {
-            putExtra(EXTRA_MESSAGE, message)
-        }
-        startActivity(intent)
-    }
-
-
-}
+}*/
