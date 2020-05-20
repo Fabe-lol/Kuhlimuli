@@ -1,3 +1,4 @@
+/*
 package com.example.kuhmuh
 
 import androidx.appcompat.app.AppCompatActivity
@@ -10,3 +11,4 @@ class DisplayMessageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_display_message)
     }
 }
+*/

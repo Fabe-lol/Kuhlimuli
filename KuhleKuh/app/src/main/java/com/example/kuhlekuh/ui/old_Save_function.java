@@ -1,3 +1,4 @@
+/*
 package com.example.kuhlekuh.ui;
 
 import android.os.Bundle;
@@ -24,3 +25,4 @@ public class Safe_function extends AppCompatActivity {
 
 
 }
+*/

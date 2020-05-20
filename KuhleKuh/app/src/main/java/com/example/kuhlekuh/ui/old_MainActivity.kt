@@ -1,3 +1,4 @@
+/*
 package com.example.kuhmuh
 
 import android.app.DatePickerDialog
@@ -25,7 +26,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mDisplayDate = findViewById<View>(R.id.tvDate) as TextView /** Hier noch zweites Select Date einfügen mit id:tvDate2 */
+        mDisplayDate = findViewById<View>(R.id.tvDate) as TextView */
+/** Hier noch zweites Select Date einfügen mit id:tvDate2 *//*
+
         mDisplayDate!!.setOnClickListener {
             val cal = Calendar.getInstance()
             val year = cal[Calendar.YEAR]
@@ -51,14 +54,7 @@ class MainActivity : AppCompatActivity() {
         private const val TAG = "MainActivity"
     }
 
-    /** Called when the user taps the Send button */
-    fun sendMessage(view: View) {
-        val editText = findViewById<EditText>(R.id.Kuhnummer)
-        val message = editText.text.toString()
-        val intent = Intent(this, DisplayMessageActivity::class.java).apply {
-            putExtra(EXTRA_MESSAGE, message)
-        }
-        startActivity(intent)
-    }
+
 
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.example.kuhlekuh.ui;
 
 
@@ -14,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class anotherMainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
@@ -57,3 +58,4 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 }
+*/
