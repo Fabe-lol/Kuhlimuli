@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mDisplayDate = findViewById<View>(R.id.tvDate) as TextView
+        mDisplayDate = findViewById<View>(R.id.tvDate) as TextView /** Hier noch zweites Select Date einfügen mit id:tvDate2 */
         mDisplayDate!!.setOnClickListener {
             val cal = Calendar.getInstance()
             val year = cal[Calendar.YEAR]
