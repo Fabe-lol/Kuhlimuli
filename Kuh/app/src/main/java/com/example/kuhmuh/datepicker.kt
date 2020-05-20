@@ -1,15 +1,8 @@
 package com.example.kuhmuh
 
-import android.app.DatePickerDialog
-import android.app.DatePickerDialog.OnDateSetListener
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import java.util.*
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
+
 
 /*class MainActivity : AppCompatActivity() {
     private var mDisplayDate: TextView? = null
@@ -45,3 +38,5 @@ import java.util.*
         private const val TAG = "MainActivity"
     }
 }*/
+
+
