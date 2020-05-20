@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="145dp"
+        android:layout_height="56dp"
+        android:background="@drawable/cusomborder1"
+        android:hint="select Date"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.845" />
+
+    <TextView
+        android:id="@+id/tvDate2"
+        android:layout_width="145dp"
+        android:layout_height="56dp"
+        android:background="@drawable/cusomborder1"
+        android:hint="select Date"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.778"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.845" />
+
+    <EditText
+        android:id="@+id/Kuhnummer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/cusomborder1"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.005"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Überschrift"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/Überschrift"
+        android:layout_width="294dp"
+        android:layout_height="75dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Tierbehandlung"
+        android:textColor="#000000"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sendMessage"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.948" />
+
+    <TextView
+        android:id="@+id/BeschreibungKuhnummer"
+        android:layout_width="232dp"
+        android:layout_height="33dp"
+        android:text="Nummer Ohrmarke:"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/Kuhnummer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Überschrift"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <CheckBox
+        android:id="@+id/auswahl1"
+        android:layout_width="303dp"
+        android:layout_height="26dp"
+        android:text="Trockenstellen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Kuhnummer"
+        app:layout_constraintVertical_bias="0.115" />
+
+    <CheckBox
+        android:id="@+id/auswahl2"
+        android:layout_width="303dp"
+        android:layout_height="26dp"
+        android:text="Nabelerkrankung"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Kuhnummer"
+        app:layout_constraintVertical_bias="0.164" />
+
+    <CheckBox
+        android:id="@+id/auswahl3"
+        android:layout_width="303dp"
+        android:layout_height="26dp"
+        android:text="Klauenerkrankung"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Kuhnummer"
+        app:layout_constraintVertical_bias="0.213" />
+
+    <CheckBox
+        android:id="@+id/auswahl4"
+        android:layout_width="303dp"
+        android:layout_height="26dp"
+        android:text="Nachgeburtsverhaltung"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Kuhnummer"
+        app:layout_constraintVertical_bias="0.262" />
+
+    <CheckBox
+        android:id="@+id/auswahl5"
+        android:layout_width="303dp"
+        android:layout_height="26dp"
+        android:text="Euterentzündung"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Kuhnummer"
+        app:layout_constraintVertical_bias="0.311" />
+
+    <CheckBox
+        android:id="@+id/auswahl6"
+        android:layout_width="303dp"
+        android:layout_height="26dp"
+        android:text="Impfung Kälberflechte"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Kuhnummer"
+        app:layout_constraintVertical_bias="0.36" />
+
+    <CheckBox
+        android:id="@+id/auswahl7"
+        android:layout_width="303dp"
+        android:layout_height="26dp"
+        android:text="ET-Behandlung"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Kuhnummer"
+        app:layout_constraintVertical_bias="0.409" />
+
+    <CheckBox
+        android:id="@+id/auswahl8"
+        android:layout_width="303dp"
+        android:layout_height="26dp"
+        android:text="Sonderbehandlung"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Kuhnummer"
+        app:layout_constraintVertical_bias="0.458" />
+
+
+    <TextView
+        android:id="@+id/vonDateText"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="536dp"
+        android:text="Von:"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bisDateText"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="536dp"
+        android:text="Bis:"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvDate2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.589"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
