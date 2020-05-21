@@ -14,7 +14,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private TextView mDisplayDate;
+    private TextView mDisplayDate2;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private DatePickerDialog.OnDateSetListener mDateSetListener2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
