@@ -20,7 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private TextView mDisplayDate;
+    private TextView mDisplayDate2;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private DatePickerDialog.OnDateSetListener mDateSetListener2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         
         mDisplayDate = (TextView) findViewById(R.id.tvDate);
+        mDisplayDate2 = (TextView) findViewById(R.id.tvDate2);
+        // Datepicker 1 startdatum
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,15 +55,44 @@ public class MainActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
+        // Datepicker 2 startdatum
+        mDisplayDate2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
 
+                DatePickerDialog dialog = new DatePickerDialog(
+                        MainActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener2,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+        // Datepicker 1 startdatum
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
+                Log.d(TAG, "onDateSet: dd.mm.yyy: " + day + "." + month + "." + year);
 
-                String date = month + "/" + day + "/" + year;
+                String date = day + "." + month + "." + year;
                 mDisplayDate.setText(date);
+            }
+        };
+        // Datepicker 2 startdatum
+        mDateSetListener2 = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(TAG, "onDateSet: dd.mm.yyy: " + day + "." + month + "." + year);
+
+                String date = day + "." + month + "." + year;
+                mDisplayDate2.setText(date);
             }
         };
     }
