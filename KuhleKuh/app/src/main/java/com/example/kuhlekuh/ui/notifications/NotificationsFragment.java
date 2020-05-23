@@ -26,21 +26,22 @@ public class NotificationsFragment extends Fragment {
                 ViewModelProviders.of(this).get(NotificationsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
 
-        TableLayout prices = (TableLayout)root.findViewById(R.id.simpleTableLayout);
-        prices.setStretchAllColumns(true);
-        prices.bringToFront();
+        //dynamic table
+        TableLayout overviewTable = (TableLayout)root.findViewById(R.id.simpleTableLayout);
+        overviewTable.setStretchAllColumns(true);
+        overviewTable.bringToFront();
         for(int i = 0; i < 3; i++){
             TableRow tr =  new TableRow(getContext());
-            TextView c1 = new TextView(getContext());
-            c1.setText("cowNumber");
-            TextView c2 = new TextView(getContext());
-            c2.setText("vaccination");
-            TextView c3 = new TextView(getContext());
-            c3.setText("muh");
-            tr.addView(c1);
-            tr.addView(c2);
-            tr.addView(c3);
-            prices.addView(tr);
+            TextView textColumnNr1 = new TextView(getContext());
+            textColumnNr1.setText("cowNumber");
+            TextView textColumnNr2 = new TextView(getContext());
+            textColumnNr2.setText("vaccination");
+            TextView textColumnNr3 = new TextView(getContext());
+            textColumnNr3.setText("muh");
+            tr.addView(textColumnNr1);
+            tr.addView(textColumnNr2);
+            tr.addView(textColumnNr3);
+            overviewTable.addView(tr);
         }
 
         return root;
