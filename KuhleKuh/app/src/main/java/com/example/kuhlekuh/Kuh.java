@@ -12,30 +12,14 @@ import java.util.List;
 @Entity
 public class Kuh {
     @PrimaryKey
-    public int uid;
-
-    @ColumnInfo(name = "ETBehandlung")
-    public Boolean ETBehandlung;
-
-    @ColumnInfo(name = "Euterentzuendung")
-    public Boolean Euterentzuendung;
-
-    @ColumnInfo(name = "Impfung_Kaelberflechte")
-    public Boolean Impfung_Kaelberflechte;
-
-    @ColumnInfo(name = "Klauenerkrankung")
-    public Boolean Klauenerkrankung;
-
-    @ColumnInfo(name = "Nabelerkankung")
-    public Boolean Nabelerkankung;
-
-    @ColumnInfo(name = "Nachgeburtsverhaltung")
-    public Boolean Nachgeburtsverhaltung;
-
-    @ColumnInfo(name = "Sonderbehandlung")
-    public Boolean Sonderbehandlung;
-
-    @ColumnInfo(name = "Trockenstellen")
-    public Boolean Trockenstellen;
+    public int ohrmarke;
+    public Boolean etBehandlung;
+    public Boolean euterentzuendung;
+    public Boolean impfungKaelberflechte;
+    public Boolean klauenerkrankung;
+    public Boolean nabelerkankung;
+    public Boolean nachgeburtsverhaltung;
+    public Boolean sonderbehandlung;
+    public Boolean trockenstellen;
 }
 
