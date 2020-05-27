@@ -11,6 +11,17 @@ import java.util.List;
 
 @Entity
 public class Kuh {
+    public Kuh(){
+        ohrmarke = 0;
+        etBehandlung = false;
+        euterentzuendung  = false;
+        impfungKaelberflechte = false;
+        klauenerkrankung = false;
+        nabelerkankung = false;
+        nachgeburtsverhaltung = false;
+        sonderbehandlung = false;
+        trockenstellen = false;
+    }
     @PrimaryKey
     public int ohrmarke;
     public Boolean etBehandlung;
