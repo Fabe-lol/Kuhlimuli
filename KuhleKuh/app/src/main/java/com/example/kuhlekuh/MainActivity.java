@@ -9,19 +9,10 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.room.Room;
 
-import android.app.DatePickerDialog;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
-    private TextView mDisplayDate;
-    private TextView mDisplayDate2;
-    private DatePickerDialog.OnDateSetListener mDateSetListener;
-    private DatePickerDialog.OnDateSetListener mDateSetListener2;
-
-    KuhDatabase kuhDb = Room.databaseBuilder(getApplicationContext(), KuhDatabase.class,
-            "database-name").build();
+    //KuhDatabase kuhDb = Room.databaseBuilder(getApplicationContext(), KuhDatabase.class, "database-name").build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
