@@ -21,6 +21,7 @@
         app:layout_constraintVertical_bias="0.805" />
 
 
+
     <TextView
         android:id="@+id/tvDate2"
         android:layout_width="145dp"
