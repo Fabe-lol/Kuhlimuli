@@ -32,5 +32,18 @@ public class Kuh {
     public Boolean nachgeburtsverhaltung;
     public Boolean sonderbehandlung;
     public Boolean trockenstellen;
+    public Kuh(int ohrmarke, boolean etBehandlung, boolean euterentzuendung, boolean impfungKaelberflechte,
+               boolean klauenerkrankung, boolean nabelerkankung, boolean nachgeburtsverhaltung, boolean sonderbehandlung, boolean trockenstellen){
+        this.ohrmarke = ohrmarke;
+        this.etBehandlung = etBehandlung;
+        this.euterentzuendung = euterentzuendung;
+        this.impfungKaelberflechte = impfungKaelberflechte;
+        this.klauenerkrankung = klauenerkrankung;
+        this.nabelerkankung = nabelerkankung;
+        this.nachgeburtsverhaltung = nachgeburtsverhaltung;
+        this.sonderbehandlung = sonderbehandlung;
+        this.trockenstellen = trockenstellen;
+
+    }
 }
 

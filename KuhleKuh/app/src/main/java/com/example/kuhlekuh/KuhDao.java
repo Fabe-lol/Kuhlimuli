@@ -1,5 +1,6 @@
 package com.example.kuhlekuh;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Database;
 import androidx.room.Delete;
@@ -12,12 +13,12 @@ import java.util.List;
 
 @Dao
 public interface KuhDao {
-    @Query("SELECT * FROM Kuh")
-    List<Kuh> getAll();
+    @Query("SELECT * FROM Kuh ORDER BY ohrmarke DESC") //geordnet nach Ohrmarken nummer
+    LiveData<List<Kuh>> getAll(); //live Data
     @Insert
     void insertKuh(Kuh kuh);
     @Update
-    void updatePerson(Kuh kuh);
+    void updateKuh(Kuh kuh);
     @Delete
     void delete(Kuh kuh);
 }
