@@ -16,11 +16,13 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.kuhlekuh.R;
 
+/*
 public class NotificationsFragment extends Fragment {
 
     private NotificationsViewModel notificationsViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
+    */
+/*public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         notificationsViewModel =
                 ViewModelProviders.of(this).get(NotificationsViewModel.class);
@@ -44,8 +46,10 @@ public class NotificationsFragment extends Fragment {
             overviewTable.addView(tr);
         }
 
-        return root;
+        return root;*//*
+
     }
 }
+*/
 
 

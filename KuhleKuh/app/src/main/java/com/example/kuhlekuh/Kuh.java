@@ -22,8 +22,74 @@ public class Kuh {
         sonderbehandlung = false;
         trockenstellen = false;
     }
+
+    public Boolean getEtBehandlung() {
+        return etBehandlung;
+    }
+
+    public Boolean getEuterentzuendung() {
+        return euterentzuendung;
+    }
+
+    public Boolean getImpfungKaelberflechte() {
+        return impfungKaelberflechte;
+    }
+
+    public Boolean getKlauenerkrankung() {
+        return klauenerkrankung;
+    }
+
+    public Boolean getNabelerkankung() {
+        return nabelerkankung;
+    }
+
+    public Boolean getNachgeburtsverhaltung() {
+        return nachgeburtsverhaltung;
+    }
+
+    public Boolean getSonderbehandlung() {
+        return sonderbehandlung;
+    }
+
+    public Boolean getTrockenstellen() {
+        return trockenstellen;
+    }
+
     @PrimaryKey
     private int ohrmarke;
+
+    public void setEtBehandlung(Boolean etBehandlung) {
+        this.etBehandlung = etBehandlung;
+    }
+
+    public void setEuterentzuendung(Boolean euterentzuendung) {
+        this.euterentzuendung = euterentzuendung;
+    }
+
+    public void setImpfungKaelberflechte(Boolean impfungKaelberflechte) {
+        this.impfungKaelberflechte = impfungKaelberflechte;
+    }
+
+    public void setKlauenerkrankung(Boolean klauenerkrankung) {
+        this.klauenerkrankung = klauenerkrankung;
+    }
+
+    public void setNabelerkankung(Boolean nabelerkankung) {
+        this.nabelerkankung = nabelerkankung;
+    }
+
+    public void setNachgeburtsverhaltung(Boolean nachgeburtsverhaltung) {
+        this.nachgeburtsverhaltung = nachgeburtsverhaltung;
+    }
+
+    public void setSonderbehandlung(Boolean sonderbehandlung) {
+        this.sonderbehandlung = sonderbehandlung;
+    }
+
+    public void setTrockenstellen(Boolean trockenstellen) {
+        this.trockenstellen = trockenstellen;
+    }
+
     private Boolean etBehandlung;
     private Boolean euterentzuendung;
     private Boolean impfungKaelberflechte;
@@ -49,27 +115,6 @@ public class Kuh {
     }
     public int getOhrmarke() {
         return ohrmarke;
-    }
-    public boolean geteuterentzuendung(){
-        return euterentzuendung;
-    }
-    public boolean getimpfungKaelberflechte(){
-        return impfungKaelberflechte;
-    }
-    public boolean getklauenerkrankung(){
-        return klauenerkrankung;
-    }
-    public boolean getnabelerkankung(){
-        return nabelerkankung;
-    }
-    public boolean getnachgeburtsverhaltung(){
-        return nachgeburtsverhaltung;
-    }
-    public boolean getsonderbehandlung(){
-        return sonderbehandlung;
-    }
-    public boolean gettrockenstellen(){
-        return trockenstellen;
     }
 
 }
