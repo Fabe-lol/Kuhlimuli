@@ -13,7 +13,7 @@ public class KuhRepository {
 
     public KuhRepository(Application application){
         KuhDatabase database = KuhDatabase.getInstance(application);
-        kuhDao = database.userDao();
+        kuhDao = database.kuhDao();
         allKuh = kuhDao.getAll();
     }
     public void insertKuh (Kuh kuh){

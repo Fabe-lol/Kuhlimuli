@@ -14,7 +14,7 @@ public abstract class KuhDatabase extends RoomDatabase {
 
     private static KuhDatabase instance;//create a singleton, um nicht mehrere versionen der Datenbank zu erzeugen
 
-    public abstract KuhDao userDao();
+    public abstract KuhDao kuhDao();
 
     public static synchronized KuhDatabase getInstance(Context context){
         if (instance == null) {
@@ -26,6 +26,7 @@ public abstract class KuhDatabase extends RoomDatabase {
         }
         return instance;
     }
+
     private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback(){
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db){
@@ -33,10 +34,11 @@ public abstract class KuhDatabase extends RoomDatabase {
             new PopulateDbAsyncTask(instance).execute();
         }
     };
+
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void>{
         private KuhDao kuhDao;
         private PopulateDbAsyncTask(KuhDatabase db){
-            kuhDao = db.userDao();
+            kuhDao = db.kuhDao();
         }
         @Override
         protected Void doInBackground(Void... voids){
