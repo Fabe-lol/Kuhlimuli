@@ -1,11 +1,15 @@
 package com.example.kuhlekuh;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -26,13 +30,25 @@ public class MainActivity extends AppCompatActivity {
 
 // Neues KuhViewModel
     private KuhViewModel kuhViewModel;
+    public static final int ADD_KUH_REQUEST =1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FloatingActionButton buttonAddKuh = findViewById(R.id.button_add_kuh);
+        buttonAddKuh.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddKuhActivity.class);
+                startActivityForResult(intent, ADD_KUH_REQUEST);
+            }
+        });
+
         RecyclerView recyclerView = findViewById(R.id.recykler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
+
         final KuhAdapter adapter = new KuhAdapter();
         recyclerView.setAdapter(adapter);
         //KuhViewModel
@@ -41,9 +57,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Kuh> kuhs) {
                 adapter.setKuh(kuhs);
-
             }
         });
+
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ADD_KUH_REQUEST && requestCode == RESULT_OK){
+            String behandlung = data.getStringExtra(AddKuhActivity.EXTRA_BEHANDLUNG);
+            String ohrmarke = data.getStringExtra(AddKuhActivity.EXTRA_OHRMARKE);
+
+            Kuh kuh = new Kuh(behandlung, ohrmarke);
+            kuhViewModel.insertKuh(kuh);
+            Toast.makeText(this, "Kuh Saved", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this, "Kuh not saved", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
