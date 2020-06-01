@@ -16,6 +16,7 @@ public class KuhRepository {
         kuhDao = database.kuhDao();
         allKuh = kuhDao.getAll();
     }
+
     public void insertKuh (Kuh kuh){
         new InsertKuhAsyncTask(kuhDao).execute(kuh);
     }
@@ -28,6 +29,7 @@ public class KuhRepository {
     public LiveData<List<Kuh>> getAllKuh(){
         return allKuh;
     }
+
     private static class InsertKuhAsyncTask extends AsyncTask<Kuh, Void, Void> {
         private  KuhDao kuhDao;
         private InsertKuhAsyncTask(KuhDao kuhDao){
@@ -39,6 +41,7 @@ public class KuhRepository {
             return null;
         }
     }
+
     private static class UpdateKuhAsyncTask extends AsyncTask<Kuh, Void, Void> {
         private  KuhDao kuhDao;
         private UpdateKuhAsyncTask(KuhDao kuhDao){
@@ -50,6 +53,7 @@ public class KuhRepository {
             return null;
         }
     }
+
     private static class DeleteKuhAsyncTask extends AsyncTask<Kuh, Void, Void> {
         private  KuhDao kuhDao;
         private DeleteKuhAsyncTask(KuhDao kuhDao){

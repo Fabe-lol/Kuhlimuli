@@ -65,11 +65,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ADD_KUH_REQUEST && requestCode == RESULT_OK){
+        if (requestCode == ADD_KUH_REQUEST && resultCode == RESULT_OK){
             String behandlung = data.getStringExtra(AddKuhActivity.EXTRA_BEHANDLUNG);
-            String ohrmarke = data.getStringExtra(AddKuhActivity.EXTRA_OHRMARKE);
+            String sOhrmarke = data.getStringExtra(AddKuhActivity.EXTRA_OHRMARKE);
+            int iOhrmarke = Integer.parseInt(sOhrmarke);
 
-            Kuh kuh = new Kuh(behandlung, ohrmarke);
+            Kuh kuh = new Kuh(iOhrmarke);
             kuhViewModel.insertKuh(kuh);
             Toast.makeText(this, "Kuh Saved", Toast.LENGTH_SHORT).show();
         }

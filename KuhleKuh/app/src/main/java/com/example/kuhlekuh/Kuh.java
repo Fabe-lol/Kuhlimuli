@@ -13,15 +13,27 @@ import java.util.List;
 public class Kuh {
     //default constructor
     public Kuh(){
-        ohrmarke = 0;
-        etBehandlung = false;
-        euterentzuendung  = false;
-        impfungKaelberflechte = false;
-        klauenerkrankung = false;
-        nabelerkankung = false;
-        nachgeburtsverhaltung = false;
-        sonderbehandlung = false;
-        trockenstellen = false;
+        this.ohrmarke = 0;
+        this.etBehandlung = false;
+        this.euterentzuendung  = false;
+        this.impfungKaelberflechte = false;
+        this.klauenerkrankung = false;
+        this.nabelerkankung = false;
+        this.nachgeburtsverhaltung = false;
+        this.sonderbehandlung = false;
+        this.trockenstellen = false;
+    }
+
+    public Kuh(int ohrmarke){
+        this.ohrmarke = ohrmarke;
+        this.etBehandlung = false;
+        this.euterentzuendung  = false;
+        this.impfungKaelberflechte = false;
+        this.klauenerkrankung = false;
+        this.nabelerkankung = false;
+        this.nachgeburtsverhaltung = false;
+        this.sonderbehandlung = false;
+        this.trockenstellen = false;
     }
 
     //full constructor

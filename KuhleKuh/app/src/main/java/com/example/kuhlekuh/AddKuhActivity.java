@@ -61,6 +61,5 @@ public class AddKuhActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
-        return super.onOptionsItemSelected(item);
     }
 }
