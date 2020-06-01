@@ -11,6 +11,7 @@ import java.util.List;
 
 @Entity
 public class Kuh {
+    //default constructor
     public Kuh(){
         ohrmarke = 0;
         etBehandlung = false;
@@ -21,6 +22,35 @@ public class Kuh {
         nachgeburtsverhaltung = false;
         sonderbehandlung = false;
         trockenstellen = false;
+    }
+
+    //full constructor
+    public Kuh(int ohrmarke, boolean etBehandlung, boolean euterentzuendung, boolean impfungKaelberflechte,
+               boolean klauenerkrankung, boolean nabelerkankung, boolean nachgeburtsverhaltung, boolean sonderbehandlung, boolean trockenstellen){
+        this.ohrmarke = ohrmarke;
+        this.etBehandlung = etBehandlung;
+        this.euterentzuendung = euterentzuendung;
+        this.impfungKaelberflechte = impfungKaelberflechte;
+        this.klauenerkrankung = klauenerkrankung;
+        this.nabelerkankung = nabelerkankung;
+        this.nachgeburtsverhaltung = nachgeburtsverhaltung;
+        this.sonderbehandlung = sonderbehandlung;
+        this.trockenstellen = trockenstellen;
+    }
+
+    @PrimaryKey
+    private int ohrmarke;
+    private Boolean etBehandlung;
+    private Boolean euterentzuendung;
+    private Boolean impfungKaelberflechte;
+    private Boolean klauenerkrankung;
+    private Boolean nabelerkankung;
+    private Boolean nachgeburtsverhaltung;
+    private Boolean sonderbehandlung;
+    private Boolean trockenstellen;
+
+    public int getOhrmarke() {
+        return ohrmarke;
     }
 
     public Boolean getEtBehandlung() {
@@ -55,9 +85,6 @@ public class Kuh {
         return trockenstellen;
     }
 
-    @PrimaryKey
-    private int ohrmarke;
-
     public void setEtBehandlung(Boolean etBehandlung) {
         this.etBehandlung = etBehandlung;
     }
@@ -90,32 +117,8 @@ public class Kuh {
         this.trockenstellen = trockenstellen;
     }
 
-    private Boolean etBehandlung;
-    private Boolean euterentzuendung;
-    private Boolean impfungKaelberflechte;
-    private Boolean klauenerkrankung;
-    private Boolean nabelerkankung;
-    private Boolean nachgeburtsverhaltung;
-    private Boolean sonderbehandlung;
-    private Boolean trockenstellen;
-    public Kuh(int ohrmarke, boolean etBehandlung, boolean euterentzuendung, boolean impfungKaelberflechte,
-               boolean klauenerkrankung, boolean nabelerkankung, boolean nachgeburtsverhaltung, boolean sonderbehandlung, boolean trockenstellen){
-        this.ohrmarke = ohrmarke;
-        this.etBehandlung = etBehandlung;
-        this.euterentzuendung = euterentzuendung;
-        this.impfungKaelberflechte = impfungKaelberflechte;
-        this.klauenerkrankung = klauenerkrankung;
-        this.nabelerkankung = nabelerkankung;
-        this.nachgeburtsverhaltung = nachgeburtsverhaltung;
-        this.sonderbehandlung = sonderbehandlung;
-        this.trockenstellen = trockenstellen;
-    }
     public void setOhrmarke(int ohrmarke){
         this.ohrmarke = ohrmarke;
     }
-    public int getOhrmarke() {
-        return ohrmarke;
-    }
-
 }
 
