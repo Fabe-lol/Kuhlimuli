@@ -27,8 +27,8 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
         Kuh currentKuh = kuh.get(position);
         holder.textViewOhrmarke.setText(String.valueOf(currentKuh.getOhrmarke()));
         //hier die Abfrage nach booelans funzt noch nicht
-        holder.textViewBehandlung.setText("Behandlung erfolgt");
-        holder.textViewDescription.setText("Boolean.valueOf(currentKuh.geteuterentzuendung())");
+        holder.textViewBehandlung.setText("etBehandlung: " + currentKuh.getEtBehandlung().toString());
+        holder.textViewDescription.setText("euterentzuendung: " + currentKuh.getEuterentzuendung().toString());
     }
 
     @Override
