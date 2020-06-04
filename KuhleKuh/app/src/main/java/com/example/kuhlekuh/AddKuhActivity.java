@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,8 +18,12 @@ public class AddKuhActivity extends AppCompatActivity {
             "com.example.kuhlekuh.EXTRA_BEHANDLUNG";
     public static final String EXTRA_OHRMARKE =
             "com.example.kuhlekuh.EXTRA_OHRMARKE";
+    public static final String EXTRA_CHECKBOX1 =
+            "com.example.kuhlekuh.EXTRA_CHECKBOX1";
     private EditText editTextBehandlung;
     private EditText editOhrmakre;
+    
+    private CheckBox etBehandlung;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +32,38 @@ public class AddKuhActivity extends AppCompatActivity {
 
         editTextBehandlung = findViewById(R.id.edit_text_behandlung);
         editOhrmakre = findViewById(R.id.number_ohrmarke);
+
+        etBehandlung = (CheckBox)findViewById(R.id.checkBox1);
+        etBehandlung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
         setTitle("Add Kuh");
     }
     private void saveKuh(){
         String behandlung = editTextBehandlung.getText().toString();
         String ohrmarke = editOhrmakre.getText().toString();
-        if (behandlung.trim().isEmpty()||ohrmarke.trim().isEmpty()){
-            Toast.makeText(this, "Please insert Behandlung und Ohrmarke", Toast.LENGTH_SHORT).show();
+        String etbehandlung = etBehandlung.getText().toString();
+        //on Klick Listener finzt nicht, weiß nicht wie ich den wert in EXTRA CHECKBOX zu nem string machen kann
+        if (etBehandlung.isChecked()){
+                
+                Toast.makeText(AddKuhActivity.this, "ETBehandlung ausgewählt", Toast.LENGTH_SHORT).show();
+
+        }
+
+
+        if (ohrmarke.trim().isEmpty()){
+            Toast.makeText(this, "Please insert Ohrmarke", Toast.LENGTH_SHORT).show();
             return;
         }
         Intent data = new Intent();
         data.putExtra(EXTRA_BEHANDLUNG, behandlung);
         data.putExtra(EXTRA_OHRMARKE, ohrmarke);
+        data.putExtra(EXTRA_CHECKBOX1, etbehandlung);
 
         setResult(RESULT_OK, data);
         finish();

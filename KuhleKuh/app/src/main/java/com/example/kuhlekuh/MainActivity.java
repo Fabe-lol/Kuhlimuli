@@ -68,9 +68,13 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == ADD_KUH_REQUEST && resultCode == RESULT_OK){
             String behandlung = data.getStringExtra(AddKuhActivity.EXTRA_BEHANDLUNG);
             String sOhrmarke = data.getStringExtra(AddKuhActivity.EXTRA_OHRMARKE);
+            String etbehandlung = data.getStringExtra(AddKuhActivity.EXTRA_CHECKBOX1);
             int iOhrmarke = Integer.parseInt(sOhrmarke);
+            boolean ietbehandlung = Boolean.parseBoolean(etbehandlung);
 
-            Kuh kuh = new Kuh(iOhrmarke);
+
+            Kuh kuh = new Kuh(iOhrmarke, ietbehandlung);
+
             kuhViewModel.insertKuh(kuh);
             Toast.makeText(this, "Kuh Saved", Toast.LENGTH_SHORT).show();
         }

@@ -27,8 +27,8 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
         Kuh currentKuh = kuh.get(position);
         holder.textViewOhrmarke.setText(String.valueOf(currentKuh.getOhrmarke()));
         //hier die Abfrage nach booelans funzt noch nicht
-        holder.textViewBehandlung.setText("etBehandlung: " + currentKuh.getEtBehandlung().toString());
-        holder.textViewDescription.setText("euterentzuendung: " + currentKuh.getEuterentzuendung().toString());
+        //holder.textViewBehandlung.setText("etBehandlung: " + currentKuh.getEtBehandlung().toString());
+        holder.textViewet.setText(String.format("ET durchgeführt :%s", currentKuh.getEtBehandlung()));
     }
 
     @Override
@@ -36,19 +36,20 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
         return kuh.size();
     }
     public void setKuh(List<Kuh> kuhs){
+
         this.kuh = kuhs;
         notifyDataSetChanged();
     }
     class KuhHolder extends RecyclerView.ViewHolder{
 
         private TextView textViewBehandlung;
-        private TextView textViewDescription;
+        private TextView textViewet;
         private TextView textViewOhrmarke;
 
         public KuhHolder(@NonNull View itemView) {
             super(itemView);
             textViewBehandlung = itemView.findViewById(R.id.text_view_Behandlung);
-            textViewDescription = itemView.findViewById(R.id.text_view_description);
+            textViewet = itemView.findViewById(R.id.text_view_et);
             textViewOhrmarke = itemView.findViewById(R.id.text_view_ohrmarke);
         }
     }

@@ -24,9 +24,9 @@ public class Kuh {
         this.trockenstellen = false;
     }
 
-    public Kuh(int ohrmarke){
+    public Kuh(int ohrmarke, Boolean etBehandlung){
         this.ohrmarke = ohrmarke;
-        this.etBehandlung = false;
+        this.etBehandlung = etBehandlung;
         this.euterentzuendung  = false;
         this.impfungKaelberflechte = false;
         this.klauenerkrankung = false;
@@ -37,7 +37,7 @@ public class Kuh {
     }
 
     //full constructor
-    public Kuh(int ohrmarke, boolean etBehandlung, boolean euterentzuendung, boolean impfungKaelberflechte,
+    public Kuh(int ohrmarke, Boolean etBehandlung, boolean euterentzuendung, boolean impfungKaelberflechte,
                boolean klauenerkrankung, boolean nabelerkankung, boolean nachgeburtsverhaltung, boolean sonderbehandlung, boolean trockenstellen){
         this.ohrmarke = ohrmarke;
         this.etBehandlung = etBehandlung;
