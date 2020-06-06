@@ -6,8 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginEnd="8dp"
     android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
-    tools:context=".ui.notifications.NotificationsFragment">
+    android:layout_marginTop="8dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -18,27 +17,162 @@
             android:id="@+id/text_view_ohrmarke"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="1"
+            android:layout_alignParentLeft="true"
+            android:text="Ohrmarkennummer"
             android:textSize="25dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-        <TextView
-            android:id="@+id/text_view_Behandlung"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Behandlung"
-            android:textSize="25dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:maxLines="1"
-            android:layout_toStartOf="@+id/text_view_ohrmarke"
-            android:layout_alignParentStart="true"
-            android:ellipsize="end"/>
+
         <TextView
             android:id="@+id/text_view_et"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="ET"
+            android:maxLines="1"
             android:layout_below="@+id/text_view_ohrmarke"
-            android:text="Behandlungsarten"/>
+            android:layout_alignParentStart="true"
+            android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/text_et_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nicht durchgeführt"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_ohrmarke"
+            android:layout_alignParentRight="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/text_view_eut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eut"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_et"
+            android:layout_alignParentStart="true"
+            android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/text_view_eut_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sonst von-bis oder bool"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_et"
+            android:layout_alignParentRight="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/text_view_impf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Impf"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_eut"
+            android:layout_alignParentStart="true"
+            android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/text_view_impf_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nicht durchgeführt"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_eut"
+            android:layout_alignParentRight="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/text_view_klaue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Klaue"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_impf"
+            android:layout_alignParentStart="true"
+            android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/text_view_klaue_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nicht durchgeführt"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_impf"
+            android:layout_alignParentRight="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/text_view_nabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nabel"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_klaue_date"
+            android:layout_alignParentStart="true"
+            android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/text_view_nabel_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nicht durchgeführt"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_klaue_date"
+            android:layout_alignParentRight="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/text_view_nachgeb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nachgeb"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_nabel"
+            android:layout_alignParentStart="true"
+            android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/text_view_nachgeb_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nicht durchgeführt"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_nabel"
+            android:layout_alignParentRight="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/text_view_sonderb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sonderb"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_nachgeb"
+            android:layout_alignParentStart="true"
+            android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/text_view_sonderb_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nicht durchgeführt"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_nachgeb"
+            android:layout_alignParentRight="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/text_view_trockenst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trockenst"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_sonderb"
+            android:layout_alignParentStart="true"
+            android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/text_view_trockenst_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nicht durchgeführt"
+            android:maxLines="1"
+            android:layout_below="@+id/text_view_sonderb"
+            android:layout_alignParentRight="true"
+            android:ellipsize="end"/>
     </RelativeLayout>
 
 

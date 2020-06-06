@@ -48,7 +48,7 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
 
         public KuhHolder(@NonNull View itemView) {
             super(itemView);
-            textViewBehandlung = itemView.findViewById(R.id.text_view_Behandlung);
+            textViewBehandlung = itemView.findViewById(R.id.text_view_eut);
             textViewet = itemView.findViewById(R.id.text_view_et);
             textViewOhrmarke = itemView.findViewById(R.id.text_view_ohrmarke);
         }
