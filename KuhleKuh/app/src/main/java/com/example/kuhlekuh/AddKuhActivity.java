@@ -2,27 +2,33 @@ package com.example.kuhlekuh;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class AddKuhActivity extends AppCompatActivity {
+import java.text.DateFormat;
+import java.util.Calendar;
+
+public class AddKuhActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     public static final String EXTRA_BEHANDLUNG =
             "com.example.kuhlekuh.EXTRA_BEHANDLUNG";
     public static final String EXTRA_OHRMARKE =
             "com.example.kuhlekuh.EXTRA_OHRMARKE";
     public static final String EXTRA_CHECKBOX1 =
             "com.example.kuhlekuh.EXTRA_CHECKBOX1";
-    private EditText editTextBehandlung;
-    private EditText editOhrmakre;
-    
+    private EditText editOhrmarke;
     private CheckBox etBehandlung;
 
     @Override
@@ -30,10 +36,9 @@ public class AddKuhActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_kuh);
 
-        editTextBehandlung = findViewById(R.id.edit_text_behandlung);
-        editOhrmakre = findViewById(R.id.number_ohrmarke);
+        editOhrmarke = findViewById(R.id.number_ohrmarke);
 
-        etBehandlung = (CheckBox)findViewById(R.id.checkBox1);
+        etBehandlung = (CheckBox)findViewById(R.id.checkBox_et);
         etBehandlung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,10 +48,20 @@ public class AddKuhActivity extends AppCompatActivity {
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
         setTitle("Add Kuh");
+
+        Button buttonVon = (Button) findViewById(R.id.button_von);
+        buttonVon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment datePicker = new DatePickerFragment();
+                datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
     }
+
     private void saveKuh(){
-        String behandlung = editTextBehandlung.getText().toString();
-        String ohrmarke = editOhrmakre.getText().toString();
+        String behandlung = "dummyString";
+        String ohrmarke = editOhrmarke.getText().toString();
         String etbehandlung = etBehandlung.getText().toString();
         //on Klick Listener finzt nicht, weiß nicht wie ich den wert in EXTRA CHECKBOX zu nem string machen kann
         if (etBehandlung.isChecked()){
@@ -86,5 +101,17 @@ public class AddKuhActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+        String currentDateString = DateFormat.getDateInstance().format(c.getTime());
+
+        TextView textView = (TextView) findViewById(R.id.text_view_von);
+        textView.setText(currentDateString);
     }
 }
