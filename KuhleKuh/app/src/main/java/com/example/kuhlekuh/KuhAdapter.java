@@ -26,15 +26,14 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
     public void onBindViewHolder(@NonNull KuhHolder holder, int position) {
         Kuh currentKuh = kuh.get(position);
         holder.textViewOhrmarke.setText(String.valueOf(currentKuh.getOhrmarke()));
-        //TODO: ternary operator nutzen, um deutsches "ja" und "nein" auszugeben
-        holder.textViewEt.setText(currentKuh.getEtBehandlung().toString());
-        holder.textViewEut.setText(currentKuh.getEuterentzuendung().toString());
-        holder.textViewImpf.setText(currentKuh.getImpfungKaelberflechte().toString());
-        holder.textViewKlaue.setText(currentKuh.getKlauenerkrankung().toString());
-        holder.textViewNabel.setText(currentKuh.getNabelerkankung().toString());
-        holder.textViewNachgeb.setText(currentKuh.getNachgeburtsverhaltung().toString());
-        holder.textViewSonderb.setText(currentKuh.getSonderbehandlung().toString());
-        holder.textViewTrockenst.setText(currentKuh.getTrockenstellen().toString());
+        holder.textViewEt.setText(currentKuh.getEtBehandlung() ? "ja" : "nein");
+        holder.textViewEut.setText(currentKuh.getEuterentzuendung() ? "ja" : "nein");
+        holder.textViewImpf.setText(currentKuh.getImpfungKaelberflechte() ? "ja" : "nein");
+        holder.textViewKlaue.setText(currentKuh.getKlauenerkrankung() ? "ja" : "nein");
+        holder.textViewNabel.setText(currentKuh.getNabelerkankung() ? "ja" : "nein");
+        holder.textViewNachgeb.setText(currentKuh.getNachgeburtsverhaltung() ? "ja" : "nein");
+        holder.textViewSonderb.setText(currentKuh.getSonderbehandlung() ? "ja" : "nein");
+        holder.textViewTrockenst.setText(currentKuh.getTrockenstellen() ? "ja" : "nein");
     }
 
     @Override
