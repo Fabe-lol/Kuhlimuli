@@ -30,7 +30,7 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
             "com.example.kuhlekuh.EXTRA_CHECKBOX1";
     private EditText editOhrmarke;
     private CheckBox etBehandlung;
-    private Calendar tempCalendar = Calendar.getInstance();
+    private View tempView;
 
 
     @Override
@@ -55,11 +55,9 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
         buttonVon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tempView = v;
                 DialogFragment datePickerVon = new DatePickerFragment();
                 datePickerVon.show(getSupportFragmentManager(), "date picker von");
-                String currentDateString = DateFormat.getDateInstance().format(tempCalendar.getTime());
-                TextView textView_Von = (TextView) findViewById(R.id.text_view_von);
-                textView_Von.setText(currentDateString);
             }
         });
 
@@ -67,11 +65,9 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
         buttonBis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tempView = v;
                 DialogFragment datePickerBis = new DatePickerFragment();
                 datePickerBis.show(getSupportFragmentManager(), "date picker bis");
-                String currentDateString = DateFormat.getDateInstance().format(tempCalendar.getTime());
-                TextView textView_Bis = (TextView) findViewById(R.id.text_view_bis);
-                textView_Bis.setText(currentDateString);
             }
         });
     }
@@ -118,10 +114,23 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Calendar tempCalendar = Calendar.getInstance();
         tempCalendar.set(Calendar.YEAR, year);
         tempCalendar.set(Calendar.MONTH, month);
         tempCalendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+
+        if(tempView.getId() == R.id.button_von){
+            String currentDateString = DateFormat.getDateInstance().format(tempCalendar.getTime());
+            TextView textView_Von = (TextView) findViewById(R.id.text_view_von);
+            textView_Von.setText(currentDateString);
+        }
+        else {
+            String currentDateString = DateFormat.getDateInstance().format(tempCalendar.getTime());
+            TextView textView_Bis = (TextView) findViewById(R.id.text_view_bis);
+            textView_Bis.setText(currentDateString);
+        }
     }
+
 
 
 }
