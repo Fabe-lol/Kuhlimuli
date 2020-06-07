@@ -18,7 +18,7 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
     @Override
     public KuhHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_notifications, parent, false);
+                .inflate(R.layout.kuh_item, parent, false);
         return new KuhHolder(itemView);
     }
 

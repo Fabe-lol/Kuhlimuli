@@ -11,7 +11,7 @@
         android:id="@+id/recykler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/fragment_notifications"/>
+        tools:listitem="@layout/kuh_item"/>
     
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_add_kuh"
