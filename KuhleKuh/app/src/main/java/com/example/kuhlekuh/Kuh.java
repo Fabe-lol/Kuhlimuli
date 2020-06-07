@@ -7,6 +7,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.Query;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -60,6 +61,7 @@ public class Kuh {
     private Boolean nachgeburtsverhaltung;
     private Boolean sonderbehandlung;
     private Boolean trockenstellen;
+
 
     public int getOhrmarke() {
         return ohrmarke;

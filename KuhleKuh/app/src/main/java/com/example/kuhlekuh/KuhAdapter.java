@@ -25,6 +25,8 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
     @Override
     public void onBindViewHolder(@NonNull KuhHolder holder, int position) {
         Kuh currentKuh = kuh.get(position);
+
+        //  ? "ja" : "nein" ist eine Kurzform von if-else
         holder.textViewOhrmarke.setText(String.valueOf(currentKuh.getOhrmarke()));
         holder.textViewEt.setText(currentKuh.getEtBehandlung() ? "ja" : "nein");
         holder.textViewEut.setText(currentKuh.getEuterentzuendung() ? "ja" : "nein");
