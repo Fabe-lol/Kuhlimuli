@@ -22,14 +22,34 @@ import java.text.DateFormat;
 import java.util.Calendar;
 
 public class AddKuhActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
-    public static final String EXTRA_BEHANDLUNG =
-            "com.example.kuhlekuh.EXTRA_BEHANDLUNG";
+
     public static final String EXTRA_OHRMARKE =
             "com.example.kuhlekuh.EXTRA_OHRMARKE";
-    public static final String EXTRA_CHECKBOX1 =
-            "com.example.kuhlekuh.EXTRA_CHECKBOX1";
+    public static final String EXTRA_CHECKBOX_ET =
+            "com.example.kuhlekuh.EXTRA_CHECKBOX_ET";
+    public static final String EXTRA_CHECKBOX_EUTER =
+            "com.example.kuhlekuh.EXTRA_CHECKBOX_EUTER";
+    public static final String EXTRA_CHECKBOX_IMPFUNG =
+            "com.example.kuhlekuh.EXTRA_CHECKBOX_IMPFUNG";
+    public static final String EXTRA_CHECKBOX_KLAUEN =
+            "com.example.kuhlekuh.EXTRA_CHECKBOX_KLAUEN";
+    public static final String EXTRA_CHECKBOX_NABEL =
+            "com.example.kuhlekuh.EXTRA_CHECKBOX_NABEL";
+    public static final String EXTRA_CHECKBOX_NACHGEB =
+            "com.example.kuhlekuh.EXTRA_CHECKBOX_NACHGEB";
+    public static final String EXTRA_CHECKBOX_SONDER =
+            "com.example.kuhlekuh.EXTRA_CHECKBOX_SONDER";
+    public static final String EXTRA_CHECKBOX_TROCKENST =
+            "com.example.kuhlekuh.EXTRA_CHECKBOX_TROCKENST";
     private EditText editOhrmarke;
     private CheckBox etBehandlung;
+    private CheckBox euterentzuendung;
+    private CheckBox impfungKaelberflechte;
+    private CheckBox klauenerkrankung;
+    private CheckBox nabelerkankung;
+    private CheckBox nachgeburtsverhaltung;
+    private CheckBox sonderbehandlung;
+    private CheckBox trockenstellen;
     private View tempView;
 
 
@@ -38,19 +58,22 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_kuh);
 
-        editOhrmarke = findViewById(R.id.number_ohrmarke);
-
-        etBehandlung = (CheckBox)findViewById(R.id.checkBox_et);
-        etBehandlung.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
+        //Obere Leiste im Layout
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
         setTitle("Add Kuh");
 
+        //layout variables
+        editOhrmarke = findViewById(R.id.number_ohrmarke);
+        etBehandlung = (CheckBox)findViewById(R.id.checkBox_et);
+        euterentzuendung = (CheckBox)findViewById(R.id.checkBox_eut);
+        impfungKaelberflechte = (CheckBox)findViewById(R.id.checkBox_impf);
+        klauenerkrankung = (CheckBox)findViewById(R.id.checkBox_klaue);
+        nabelerkankung = (CheckBox)findViewById(R.id.checkBox_nabel);
+        nachgeburtsverhaltung = (CheckBox)findViewById(R.id.checkBox_nachgeb);
+        sonderbehandlung = (CheckBox)findViewById(R.id.checkBox_sonderb);
+        trockenstellen = (CheckBox)findViewById(R.id.checkBox_trockenst);
+
+        //Datepicker von
         Button buttonVon = (Button) findViewById(R.id.button_von);
         buttonVon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +84,7 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
             }
         });
 
+        //Datepicker bis
         Button buttonBis = (Button) findViewById(R.id.button_bis);
         buttonBis.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,23 +97,33 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
     }
 
     private void saveKuh(){
-        String behandlung = "dummyString";
         String ohrmarke = editOhrmarke.getText().toString();
-        String etbehandlung = etBehandlung.getText().toString();
-        //on Klick Listener finzt nicht, weiß nicht wie ich den wert in EXTRA CHECKBOX zu nem string machen kann
-        if (etBehandlung.isChecked()){
-                Toast.makeText(AddKuhActivity.this, "ETBehandlung ausgewählt", Toast.LENGTH_SHORT).show();
-        }
+        boolean bEtBehandlung = etBehandlung.isChecked();
+        boolean bEuterentzuendung = euterentzuendung.isChecked();
+        boolean bImpfungKaelberflechte = impfungKaelberflechte.isChecked();
+        boolean bKlauenerkrankung = klauenerkrankung.isChecked();
+        boolean bNabelerkankung = nabelerkankung.isChecked();
+        boolean bNachgeburtsverhaltung = nachgeburtsverhaltung.isChecked();
+        boolean bSonderbehandlung = sonderbehandlung.isChecked();
+        boolean bTrockenstellen = trockenstellen.isChecked();
 
+        //Leerzeichen und nicht ausgefüllte Ohrmarke abfangen
         if (ohrmarke.trim().isEmpty()){
             Toast.makeText(this, "Please insert Ohrmarke", Toast.LENGTH_SHORT).show();
             return;
         }
-        Intent data = new Intent();
-        data.putExtra(EXTRA_BEHANDLUNG, behandlung);
-        data.putExtra(EXTRA_OHRMARKE, ohrmarke);
-        data.putExtra(EXTRA_CHECKBOX1, etbehandlung);
 
+        //send back to Main Activity
+        Intent data = new Intent();
+        data.putExtra(EXTRA_OHRMARKE, ohrmarke);
+        data.putExtra(EXTRA_CHECKBOX_ET, bEtBehandlung);
+        data.putExtra(EXTRA_CHECKBOX_EUTER, bEuterentzuendung);
+        data.putExtra(EXTRA_CHECKBOX_IMPFUNG, bImpfungKaelberflechte);
+        data.putExtra(EXTRA_CHECKBOX_KLAUEN, bKlauenerkrankung);
+        data.putExtra(EXTRA_CHECKBOX_NABEL, bNabelerkankung);
+        data.putExtra(EXTRA_CHECKBOX_NACHGEB, bNachgeburtsverhaltung);
+        data.putExtra(EXTRA_CHECKBOX_SONDER, bSonderbehandlung);
+        data.putExtra(EXTRA_CHECKBOX_TROCKENST, bTrockenstellen);
         setResult(RESULT_OK, data);
         finish();
     }
@@ -130,7 +164,4 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
             textView_Bis.setText(currentDateString);
         }
     }
-
-
-
 }

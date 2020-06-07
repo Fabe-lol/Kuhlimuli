@@ -26,9 +26,15 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
     public void onBindViewHolder(@NonNull KuhHolder holder, int position) {
         Kuh currentKuh = kuh.get(position);
         holder.textViewOhrmarke.setText(String.valueOf(currentKuh.getOhrmarke()));
-        //hier die Abfrage nach booelans funzt noch nicht
-        //holder.textViewBehandlung.setText("etBehandlung: " + currentKuh.getEtBehandlung().toString());
-        holder.textViewet.setText(String.format("ET durchgeführt :%s", currentKuh.getEtBehandlung()));
+        //TODO: ternary operator nutzen, um deutsches "ja" und "nein" auszugeben
+        holder.textViewEt.setText(currentKuh.getEtBehandlung().toString());
+        holder.textViewEut.setText(currentKuh.getEuterentzuendung().toString());
+        holder.textViewImpf.setText(currentKuh.getImpfungKaelberflechte().toString());
+        holder.textViewKlaue.setText(currentKuh.getKlauenerkrankung().toString());
+        holder.textViewNabel.setText(currentKuh.getNabelerkankung().toString());
+        holder.textViewNachgeb.setText(currentKuh.getNachgeburtsverhaltung().toString());
+        holder.textViewSonderb.setText(currentKuh.getSonderbehandlung().toString());
+        holder.textViewTrockenst.setText(currentKuh.getTrockenstellen().toString());
     }
 
     @Override
@@ -40,17 +46,29 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
         this.kuh = kuhs;
         notifyDataSetChanged();
     }
-    class KuhHolder extends RecyclerView.ViewHolder{
 
-        private TextView textViewBehandlung;
-        private TextView textViewet;
+    class KuhHolder extends RecyclerView.ViewHolder{
         private TextView textViewOhrmarke;
+        private TextView textViewEt;
+        private TextView textViewEut;
+        private TextView textViewImpf;
+        private TextView textViewKlaue;
+        private TextView textViewNabel;
+        private TextView textViewNachgeb;
+        private TextView textViewSonderb;
+        private TextView textViewTrockenst;
 
         public KuhHolder(@NonNull View itemView) {
             super(itemView);
-            textViewBehandlung = itemView.findViewById(R.id.text_view_eut);
-            textViewet = itemView.findViewById(R.id.text_view_et);
             textViewOhrmarke = itemView.findViewById(R.id.text_view_ohrmarke);
+            textViewEt = itemView.findViewById(R.id.text_et_date);
+            textViewEut = itemView.findViewById(R.id.text_view_eut_date);
+            textViewImpf = itemView.findViewById(R.id.text_view_impf_date);
+            textViewKlaue = itemView.findViewById(R.id.text_view_klaue_date);
+            textViewNabel = itemView.findViewById(R.id.text_view_nabel_date);
+            textViewNachgeb = itemView.findViewById(R.id.text_view_nachgeb_date);
+            textViewSonderb = itemView.findViewById(R.id.text_view_sonderb_date);
+            textViewTrockenst = itemView.findViewById(R.id.text_view_trockenst_date);
         }
     }
 }
