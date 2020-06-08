@@ -13,7 +13,7 @@ import java.util.List;
 
 @Dao
 public interface KuhDao {
-    @Query("SELECT * FROM Kuh ORDER BY ohrmarke ASC") //geordnet nach Ohrmarken nummer
+    @Query("SELECT * FROM kuh ORDER BY ohrmarke ASC") //geordnet nach Ohrmarken nummer
     LiveData<List<Kuh>> getAll(); //live Data
     @Insert
     void insertKuh(Kuh kuh);
@@ -21,6 +21,8 @@ public interface KuhDao {
     void updateKuh(Kuh kuh);
     @Delete
     void delete(Kuh kuh);
+    @Query("DELETE FROM kuh")
+    void deleteAllKuhs();
 }
 
 

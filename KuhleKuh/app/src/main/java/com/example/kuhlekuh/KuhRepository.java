@@ -26,6 +26,9 @@ public class KuhRepository {
     public void updateKuh (Kuh kuh){
         new DeleteKuhAsyncTask(kuhDao).execute(kuh);
     }
+    public void deleteAllKuhs() {
+        new DeleteAllKuhsAsyncTask(kuhDao).execute();
+    }
     public LiveData<List<Kuh>> getAllKuh(){
         return allKuh;
     }
@@ -65,4 +68,16 @@ public class KuhRepository {
             return null;
         }
     }
+    private static class DeleteAllKuhsAsyncTask extends AsyncTask<Void, Void, Void> {
+        private KuhDao kuhDao;
+        private DeleteAllKuhsAsyncTask(KuhDao kuhDao) {
+            this.kuhDao = kuhDao;
+        }
+        @Override
+        protected Void doInBackground(Void... voids) {
+            kuhDao.deleteAllKuhs();
+            return null;
+        }
+    }
+
 }

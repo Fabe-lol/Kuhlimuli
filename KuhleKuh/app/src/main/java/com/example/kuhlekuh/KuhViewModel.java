@@ -27,6 +27,10 @@ public class KuhViewModel extends AndroidViewModel {
         repository.delete(kuh);
     }
 
+    public void deleteAllKuhs() {
+        repository.deleteAllKuhs();
+    }
+
     public LiveData<List<Kuh>> getGetAll() {
         return getAll;
     }
