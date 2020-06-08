@@ -47,7 +47,9 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
         this.kuh = kuhs;
         notifyDataSetChanged();
     }
-
+    public Kuh getKuhAt(int position){
+        return kuh.get(position);
+    }
     class KuhHolder extends RecyclerView.ViewHolder{
         private TextView textViewOhrmarke;
         private TextView textViewEt;
