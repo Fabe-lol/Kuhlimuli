@@ -21,10 +21,10 @@ public class KuhRepository {
         new InsertKuhAsyncTask(kuhDao).execute(kuh);
     }
     public void delete (Kuh kuh){
-        new UpdateKuhAsyncTask(kuhDao).execute(kuh);
+        new DeleteKuhAsyncTask(kuhDao).execute(kuh);
     }
     public void updateKuh (Kuh kuh){
-        new DeleteKuhAsyncTask(kuhDao).execute(kuh);
+        new UpdateKuhAsyncTask(kuhDao).execute(kuh);
     }
     public void deleteAllKuhs() {
         new DeleteAllKuhsAsyncTask(kuhDao).execute();
