@@ -113,8 +113,8 @@ public class MainActivity extends AppCompatActivity {
 
             kuhViewModel.insertKuh(kuh);
             Toast.makeText(this, "Kuh Saved", Toast.LENGTH_SHORT).show();
-        }
-        else if (requestCode == EDIT_KUH_REQUEST && resultCode == RESULT_OK){
+
+        }else if (requestCode == EDIT_KUH_REQUEST && resultCode == RESULT_OK){
             int id = data.getIntExtra(AddEditKuhActivity.EXTRA_ID, -1);
             if (id == -1){
                 Toast.makeText(this, "Kuh konnte nicht geupdated werden", Toast.LENGTH_SHORT).show();

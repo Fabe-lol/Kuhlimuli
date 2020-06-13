@@ -45,7 +45,6 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
     }
 
     public void setKuh(List<Kuh> kuhs) {
-
         this.kuh = kuhs;
         notifyDataSetChanged();
     }

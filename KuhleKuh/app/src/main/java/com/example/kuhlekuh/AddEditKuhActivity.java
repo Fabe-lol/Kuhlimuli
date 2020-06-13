@@ -74,7 +74,13 @@ public class AddEditKuhActivity extends AppCompatActivity implements DatePickerD
         sonderbehandlung = (CheckBox)findViewById(R.id.checkBox_sonderb);
         trockenstellen = (CheckBox)findViewById(R.id.checkBox_trockenst);
 
+
+
+
+
+
         Intent intent = getIntent();
+
         if (intent.hasExtra(EXTRA_ID)){
             setTitle("Edit Kuh");
             editOhrmarke.setText(intent.getStringExtra(EXTRA_OHRMARKE));
@@ -92,27 +98,6 @@ public class AddEditKuhActivity extends AppCompatActivity implements DatePickerD
             setTitle("Add Kuh");
         }
 
-        //Datepicker von
-        Button buttonVon = (Button) findViewById(R.id.button_von);
-        buttonVon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tempView = v;
-                DialogFragment datePickerVon = new DatePickerFragment();
-                datePickerVon.show(getSupportFragmentManager(), "date picker von");
-            }
-        });
-
-        //Datepicker bis
-        Button buttonBis = (Button) findViewById(R.id.button_bis);
-        buttonBis.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tempView = v;
-                DialogFragment datePickerBis = new DatePickerFragment();
-                datePickerBis.show(getSupportFragmentManager(), "date picker bis");
-            }
-        });
     }
 
     private void saveKuh(){
@@ -152,6 +137,7 @@ public class AddEditKuhActivity extends AppCompatActivity implements DatePickerD
         setResult(RESULT_OK, data);
         finish();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
