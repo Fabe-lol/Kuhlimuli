@@ -21,8 +21,10 @@ import android.widget.Toast;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-public class AddKuhActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class AddEditKuhActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
+    public static final String EXTRA_ID =
+            "com.example.kuhlekuh.EXTRA_ID";
     public static final String EXTRA_OHRMARKE =
             "com.example.kuhlekuh.EXTRA_OHRMARKE";
     public static final String EXTRA_CHECKBOX_ET =
@@ -60,7 +62,6 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
 
         //Obere Leiste im Layout
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
-        setTitle("Add Kuh");
 
         //layout variables
         editOhrmarke = findViewById(R.id.number_ohrmarke);
@@ -72,6 +73,24 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
         nachgeburtsverhaltung = (CheckBox)findViewById(R.id.checkBox_nachgeb);
         sonderbehandlung = (CheckBox)findViewById(R.id.checkBox_sonderb);
         trockenstellen = (CheckBox)findViewById(R.id.checkBox_trockenst);
+
+        Intent intent = getIntent();
+        if (intent.hasExtra(EXTRA_ID)){
+            setTitle("Edit Kuh");
+            editOhrmarke.setText(intent.getStringExtra(EXTRA_OHRMARKE));
+            etBehandlung.setText(intent.getStringExtra(EXTRA_CHECKBOX_ET));
+            euterentzuendung.setText(intent.getStringExtra(EXTRA_CHECKBOX_EUTER));
+            impfungKaelberflechte.setText(intent.getStringExtra(EXTRA_CHECKBOX_IMPFUNG));
+            klauenerkrankung.setText(intent.getStringExtra(EXTRA_CHECKBOX_KLAUEN));
+            nabelerkankung.setText(intent.getStringExtra(EXTRA_CHECKBOX_NABEL));
+            nachgeburtsverhaltung.setText(intent.getStringExtra(EXTRA_CHECKBOX_NACHGEB));
+            sonderbehandlung.setText(intent.getStringExtra(EXTRA_CHECKBOX_SONDER));
+            trockenstellen.setText(intent.getStringExtra(EXTRA_CHECKBOX_TROCKENST));
+
+
+        } else {
+            setTitle("Add Kuh");
+        }
 
         //Datepicker von
         Button buttonVon = (Button) findViewById(R.id.button_von);
@@ -124,6 +143,12 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
         data.putExtra(EXTRA_CHECKBOX_NACHGEB, bNachgeburtsverhaltung);
         data.putExtra(EXTRA_CHECKBOX_SONDER, bSonderbehandlung);
         data.putExtra(EXTRA_CHECKBOX_TROCKENST, bTrockenstellen);
+
+        int id = getIntent().getIntExtra(EXTRA_ID, -1);
+        if (id != -1){
+            data.putExtra(EXTRA_ID, id);
+        }
+
         setResult(RESULT_OK, data);
         finish();
     }
