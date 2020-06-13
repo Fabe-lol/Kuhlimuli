@@ -25,18 +25,6 @@ public class Kuh {
         this.trockenstellen = false;
     }
 
-    public Kuh(int ohrmarke, Boolean etBehandlung) {
-        this.ohrmarke = ohrmarke;
-        this.etBehandlung = etBehandlung;
-        this.euterentzuendung = false;
-        this.impfungKaelberflechte = false;
-        this.klauenerkrankung = false;
-        this.nabelerkankung = false;
-        this.nachgeburtsverhaltung = false;
-        this.sonderbehandlung = false;
-        this.trockenstellen = false;
-    }
-
     //full constructor
     public Kuh(int ohrmarke, boolean etBehandlung, boolean euterentzuendung, boolean impfungKaelberflechte,
                boolean klauenerkrankung, boolean nabelerkankung, boolean nachgeburtsverhaltung, boolean sonderbehandlung, boolean trockenstellen) {
@@ -51,8 +39,9 @@ public class Kuh {
         this.trockenstellen = trockenstellen;
     }
 
-    @PrimaryKey
-    private int id;
+
+    @PrimaryKey (autoGenerate = true)
+    private int juchee;
     private int ohrmarke;
     private Boolean etBehandlung;
     private Boolean euterentzuendung;
@@ -63,11 +52,13 @@ public class Kuh {
     private Boolean sonderbehandlung;
     private Boolean trockenstellen;
 
-    public void setId(int id) {
-        this.id = id;
+
+    public int getJuchee() {
+        return juchee;
     }
-    public int getId(){
-        return id;
+
+    public void setJuchee(int juchee) {
+        this.juchee = juchee;
     }
 
     public int getOhrmarke() {
