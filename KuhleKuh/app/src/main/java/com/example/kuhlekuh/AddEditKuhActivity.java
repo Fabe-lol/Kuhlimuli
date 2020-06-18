@@ -100,6 +100,7 @@ public class AddEditKuhActivity extends AppCompatActivity implements DatePickerD
 
         if (intent.hasExtra(EXTRA_ID)){
             setTitle("Edit Kuh");
+            setContentView(R.layout.activity_add_kuh);
             editOhrmarke.setText(intent.getStringExtra(EXTRA_OHRMARKE));
             etBehandlung.setText(intent.getStringExtra(EXTRA_CHECKBOX_ET));
             euterentzuendung.setText(intent.getStringExtra(EXTRA_CHECKBOX_EUTER));
