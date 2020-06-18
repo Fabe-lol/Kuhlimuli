@@ -40,8 +40,7 @@ public class Kuh {
     }
 
 
-    @PrimaryKey (autoGenerate = true)
-    private int juchee;
+    @PrimaryKey
     private int ohrmarke;
     private Boolean etBehandlung;
     private Boolean euterentzuendung;
@@ -51,16 +50,15 @@ public class Kuh {
     private Boolean nachgeburtsverhaltung;
     private Boolean sonderbehandlung;
     private Boolean trockenstellen;
+    private int id;
 
-
-    public int getJuchee() {
-        return juchee;
+    public int getId() {
+        return id;
     }
 
-    public void setJuchee(int juchee) {
-        this.juchee = juchee;
+    public void setId(int id) {
+        this.id = id;
     }
-
     public int getOhrmarke() {
         return ohrmarke;
     }

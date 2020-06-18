@@ -145,10 +145,10 @@ public class AddEditKuhActivity extends AppCompatActivity implements DatePickerD
         data.putExtra(EXTRA_CHECKBOX_SONDER, bSonderbehandlung);
         data.putExtra(EXTRA_CHECKBOX_TROCKENST, bTrockenstellen);
 
-        /*int id = getIntent().getIntExtra(EXTRA_ID, -1);
+        int id = getIntent().getIntExtra(EXTRA_ID, -1);
         if (id != -1){
             data.putExtra(EXTRA_ID, id);
-        }*/
+        }
 
         setResult(RESULT_OK, data);
         finish();

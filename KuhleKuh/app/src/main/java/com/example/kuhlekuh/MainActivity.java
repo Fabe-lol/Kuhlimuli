@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
 
-        /*adapter.setOnItemClickListener(new KuhAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new KuhAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Kuh kuh) {
                 Intent intent = new Intent(MainActivity.this, AddEditKuhActivity.class);
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(AddEditKuhActivity.EXTRA_CHECKBOX_TROCKENST, kuh.getTrockenstellen());
                 startActivityForResult(intent, EDIT_KUH_REQUEST);
             }
-        });*/
+        });
     }
 
     @Override
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             kuhViewModel.insertKuh(kuh);
             Toast.makeText(this, "Kuh Saved", Toast.LENGTH_SHORT).show();
 
-        }/*else if (requestCode == EDIT_KUH_REQUEST && resultCode == RESULT_OK){
+        }else if (requestCode == EDIT_KUH_REQUEST && resultCode == RESULT_OK){
             int id = data.getIntExtra(AddEditKuhActivity.EXTRA_ID, -1);
             if (id == -1){
                 Toast.makeText(this, "Kuh konnte nicht geupdated werden", Toast.LENGTH_SHORT).show();
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
             kuh.setId(id);
             kuhViewModel.updateKuh(kuh);
             Toast.makeText(this, "Kuh updated", Toast.LENGTH_SHORT).show();
-        }*/
+        }
         else {
             Toast.makeText(this, "Kuh not saved", Toast.LENGTH_SHORT).show();
         }
