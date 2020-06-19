@@ -100,15 +100,16 @@ public class AddEditKuhActivity extends AppCompatActivity implements DatePickerD
 
         if (intent.hasExtra(EXTRA_ID)){
             setTitle("Edit Kuh");
-            editOhrmarke.setText(intent.getStringExtra(EXTRA_OHRMARKE));
-            etBehandlung.setText(intent.getStringExtra(EXTRA_CHECKBOX_ET));
-            euterentzuendung.setText(intent.getStringExtra(EXTRA_CHECKBOX_EUTER));
-            impfungKaelberflechte.setText(intent.getStringExtra(EXTRA_CHECKBOX_IMPFUNG));
-            klauenerkrankung.setText(intent.getStringExtra(EXTRA_CHECKBOX_KLAUEN));
-            nabelerkankung.setText(intent.getStringExtra(EXTRA_CHECKBOX_NABEL));
-            nachgeburtsverhaltung.setText(intent.getStringExtra(EXTRA_CHECKBOX_NACHGEB));
-            sonderbehandlung.setText(intent.getStringExtra(EXTRA_CHECKBOX_SONDER));
-            trockenstellen.setText(intent.getStringExtra(EXTRA_CHECKBOX_TROCKENST));
+            int iOhrmarke = intent.getIntExtra(EXTRA_OHRMARKE, 0);
+            editOhrmarke.setText(String.valueOf(iOhrmarke));
+            etBehandlung.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_ET, false));
+            euterentzuendung.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_EUTER, false));
+            impfungKaelberflechte.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_IMPFUNG, false));
+            klauenerkrankung.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_KLAUEN, false));
+            nabelerkankung.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_NABEL, false));
+            nachgeburtsverhaltung.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_NACHGEB, false));
+            sonderbehandlung.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_SONDER, false));
+            trockenstellen.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_TROCKENST, false));
 
         } else {
             setTitle("Add Kuh");
