@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 // Neues KuhViewModel
     private KuhViewModel kuhViewModel;
     public static final int ADD_KUH_REQUEST =1;
+    public static final int EDIT_KUH_REQUEST =2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         buttonAddKuh.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddKuhActivity.class);
+                Intent intent = new Intent(MainActivity.this, AddEditKuhActivity.class);
                 startActivityForResult(intent, ADD_KUH_REQUEST);
             }
         });
@@ -70,21 +71,39 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Kuh gelöscht", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
+
+        adapter.setOnItemClickListener(new KuhAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Kuh kuh) {
+                Intent intent = new Intent(MainActivity.this, AddEditKuhActivity.class);
+                intent.putExtra(AddEditKuhActivity.EXTRA_ID, kuh.getId());
+                intent.putExtra(AddEditKuhActivity.EXTRA_OHRMARKE, kuh.getOhrmarke());
+                intent.putExtra(AddEditKuhActivity.EXTRA_CHECKBOX_ET, kuh.getEtBehandlung());
+                intent.putExtra(AddEditKuhActivity.EXTRA_CHECKBOX_EUTER, kuh.getEuterentzuendung());
+                intent.putExtra(AddEditKuhActivity.EXTRA_CHECKBOX_IMPFUNG, kuh.getImpfungKaelberflechte());
+                intent.putExtra(AddEditKuhActivity.EXTRA_CHECKBOX_KLAUEN, kuh.getKlauenerkrankung());
+                intent.putExtra(AddEditKuhActivity.EXTRA_CHECKBOX_NABEL, kuh.getNabelerkankung());
+                intent.putExtra(AddEditKuhActivity.EXTRA_CHECKBOX_NACHGEB, kuh.getNachgeburtsverhaltung());
+                intent.putExtra(AddEditKuhActivity.EXTRA_CHECKBOX_SONDER, kuh.getSonderbehandlung());
+                intent.putExtra(AddEditKuhActivity.EXTRA_CHECKBOX_TROCKENST, kuh.getTrockenstellen());
+                startActivityForResult(intent, EDIT_KUH_REQUEST);
+            }
+        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ADD_KUH_REQUEST && resultCode == RESULT_OK){
-            String sOhrmarke = data.getStringExtra(AddKuhActivity.EXTRA_OHRMARKE);
-            boolean bEtbehandlung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_ET, false);
-            boolean bEuterentzuendung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_EUTER, false);
-            boolean bImpfungKaelberflechte = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_IMPFUNG, false);
-            boolean bKlauenerkrankung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_KLAUEN, false);
-            boolean bNabelerkankung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_NABEL, false);
-            boolean bNachgeburtsverhaltung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_NACHGEB, false);
-            boolean bSonderbehandlung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_SONDER, false);
-            boolean bTrockenstellen = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_TROCKENST, false);
+            String sOhrmarke = data.getStringExtra(AddEditKuhActivity.EXTRA_OHRMARKE);
+            boolean bEtbehandlung = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_ET, false);
+            boolean bEuterentzuendung = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_EUTER, false);
+            boolean bImpfungKaelberflechte = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_IMPFUNG, false);
+            boolean bKlauenerkrankung = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_KLAUEN, false);
+            boolean bNabelerkankung = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_NABEL, false);
+            boolean bNachgeburtsverhaltung = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_NACHGEB, false);
+            boolean bSonderbehandlung = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_SONDER, false);
+            boolean bTrockenstellen = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_TROCKENST, false);
 
             int iOhrmarke = Integer.parseInt(sOhrmarke);
 
@@ -94,6 +113,30 @@ public class MainActivity extends AppCompatActivity {
 
             kuhViewModel.insertKuh(kuh);
             Toast.makeText(this, "Kuh Saved", Toast.LENGTH_SHORT).show();
+
+        }else if (requestCode == EDIT_KUH_REQUEST && resultCode == RESULT_OK){
+            int id = data.getIntExtra(AddEditKuhActivity.EXTRA_ID, -1);
+            if (id == -1){
+                Toast.makeText(this, "Kuh konnte nicht geupdated werden", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            String sOhrmarke = data.getStringExtra(AddEditKuhActivity.EXTRA_OHRMARKE);
+            boolean bEtbehandlung = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_ET, false);
+            boolean bEuterentzuendung = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_EUTER, false);
+            boolean bImpfungKaelberflechte = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_IMPFUNG, false);
+            boolean bKlauenerkrankung = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_KLAUEN, false);
+            boolean bNabelerkankung = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_NABEL, false);
+            boolean bNachgeburtsverhaltung = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_NACHGEB, false);
+            boolean bSonderbehandlung = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_SONDER, false);
+            boolean bTrockenstellen = data.getBooleanExtra(AddEditKuhActivity.EXTRA_CHECKBOX_TROCKENST, false);
+
+            int iOhrmarke = Integer.parseInt(sOhrmarke);
+            Kuh kuh = new Kuh(iOhrmarke,bEtbehandlung, bEuterentzuendung, bImpfungKaelberflechte,
+                    bKlauenerkrankung, bNabelerkankung, bNachgeburtsverhaltung, bSonderbehandlung,
+                    bTrockenstellen);
+            kuh.setId(id);
+            kuhViewModel.updateKuh(kuh);
+            Toast.makeText(this, "Kuh updated", Toast.LENGTH_SHORT).show();
         }
         else {
             Toast.makeText(this, "Kuh not saved", Toast.LENGTH_SHORT).show();
