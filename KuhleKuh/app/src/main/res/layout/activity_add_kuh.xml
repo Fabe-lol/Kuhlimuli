@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AddKuhActivity">
+
+    <EditText
+        android:id="@+id/number_ohrmarke"
+        android:hint="Nummer Ohrmarke:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+
+    <CheckBox
+        android:id="@+id/checkBox_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ET-Behandlung"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_eut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Euterentzuendung"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_impf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Impfung Kaelberflechte"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_klaue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Klauenerkrankung"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_nabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nabelerkankung"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_nachgeb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nachgeburtsverhaltung"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_sonderb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sonderbehandlung"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_trockenst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Trockenstellen"/>
+
+    <Button
+        android:id="@+id/button_von"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Von">
+    </Button>
+
+    <Button
+        android:id="@+id/button_bis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bis">
+    </Button>
+
+    <TextView
+        android:id="@+id/text_view_von"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Von (Datum)">
+    </TextView>
+
+    <TextView
+        android:id="@+id/text_view_bis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bis (Datum)">
+    </TextView>
+
+
+</LinearLayout>
