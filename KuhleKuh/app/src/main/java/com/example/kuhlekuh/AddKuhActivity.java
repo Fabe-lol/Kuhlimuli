@@ -21,10 +21,8 @@ import android.widget.Toast;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-public class AddEditKuhActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class AddKuhActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-    public static final String EXTRA_ID =
-            "com.example.kuhlekuh.EXTRA_ID";
     public static final String EXTRA_OHRMARKE =
             "com.example.kuhlekuh.EXTRA_OHRMARKE";
     public static final String EXTRA_CHECKBOX_ET =
@@ -62,6 +60,7 @@ public class AddEditKuhActivity extends AppCompatActivity implements DatePickerD
 
         //Obere Leiste im Layout
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
+        setTitle("Add Kuh");
 
         //layout variables
         editOhrmarke = findViewById(R.id.number_ohrmarke);
@@ -77,43 +76,24 @@ public class AddEditKuhActivity extends AppCompatActivity implements DatePickerD
         //Datepicker von
         Button buttonVon = (Button) findViewById(R.id.button_von);
         buttonVon.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 tempView = v;
-                 DialogFragment datePickerVon = new DatePickerFragment();
-                 datePickerVon.show(getSupportFragmentManager(), "date picker von");
-             }
-         });
+            @Override
+            public void onClick(View v) {
+                tempView = v;
+                DialogFragment datePickerVon = new DatePickerFragment();
+                datePickerVon.show(getSupportFragmentManager(), "date picker von");
+            }
+        });
+
         //Datepicker bis
         Button buttonBis = (Button) findViewById(R.id.button_bis);
         buttonBis.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 tempView = v;
-                 DialogFragment datePickerBis = new DatePickerFragment();
-                 datePickerBis.show(getSupportFragmentManager(), "date picker bis");
-             }
-         });
-
-
-        Intent intent = getIntent();
-
-        if (intent.hasExtra(EXTRA_ID)){
-            setTitle("Edit Kuh");
-            int iOhrmarke = intent.getIntExtra(EXTRA_OHRMARKE, 0);
-            editOhrmarke.setText(String.valueOf(iOhrmarke));
-            etBehandlung.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_ET, false));
-            euterentzuendung.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_EUTER, false));
-            impfungKaelberflechte.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_IMPFUNG, false));
-            klauenerkrankung.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_KLAUEN, false));
-            nabelerkankung.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_NABEL, false));
-            nachgeburtsverhaltung.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_NACHGEB, false));
-            sonderbehandlung.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_SONDER, false));
-            trockenstellen.setChecked(intent.getBooleanExtra(EXTRA_CHECKBOX_TROCKENST, false));
-
-        } else {
-            setTitle("Add Kuh");
-        }
+            @Override
+            public void onClick(View v) {
+                tempView = v;
+                DialogFragment datePickerBis = new DatePickerFragment();
+                datePickerBis.show(getSupportFragmentManager(), "date picker bis");
+            }
+        });
     }
 
     private void saveKuh(){
@@ -144,16 +124,9 @@ public class AddEditKuhActivity extends AppCompatActivity implements DatePickerD
         data.putExtra(EXTRA_CHECKBOX_NACHGEB, bNachgeburtsverhaltung);
         data.putExtra(EXTRA_CHECKBOX_SONDER, bSonderbehandlung);
         data.putExtra(EXTRA_CHECKBOX_TROCKENST, bTrockenstellen);
-
-        int id = getIntent().getIntExtra(EXTRA_ID, -1);
-        if (id != -1){
-            data.putExtra(EXTRA_ID, id);
-        }
-
         setResult(RESULT_OK, data);
         finish();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

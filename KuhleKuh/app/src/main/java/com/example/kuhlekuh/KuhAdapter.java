@@ -13,7 +13,6 @@ import java.util.List;
 
 public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
     private List<Kuh> kuh = new ArrayList<>();
-    private OnItemClickListener listener;
 
     @NonNull
     @Override
@@ -43,17 +42,15 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
     public int getItemCount() {
         return kuh.size();
     }
+    public void setKuh(List<Kuh> kuhs){
 
-    public void setKuh(List<Kuh> kuhs) {
         this.kuh = kuhs;
         notifyDataSetChanged();
     }
-
-    public Kuh getKuhAt(int position) {
+    public Kuh getKuhAt(int position){
         return kuh.get(position);
     }
-
-    class KuhHolder extends RecyclerView.ViewHolder {
+    class KuhHolder extends RecyclerView.ViewHolder{
         private TextView textViewOhrmarke;
         private TextView textViewEt;
         private TextView textViewEut;
@@ -75,24 +72,6 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
             textViewNachgeb = itemView.findViewById(R.id.text_view_nachgeb_date);
             textViewSonderb = itemView.findViewById(R.id.text_view_sonderb_date);
             textViewTrockenst = itemView.findViewById(R.id.text_view_trockenst_date);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    if (listener != null && position != RecyclerView.NO_POSITION) {
-                        listener.onItemClick(kuh.get(position));
-                    }
-                }
-            });
         }
-    }
-
-    public interface OnItemClickListener {
-        void onItemClick(Kuh kuh);
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
     }
 }

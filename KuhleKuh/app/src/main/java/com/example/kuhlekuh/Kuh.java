@@ -13,10 +13,22 @@ import java.util.List;
 @Entity
 public class Kuh {
     //default constructor
-    public Kuh() {
+    public Kuh(){
         this.ohrmarke = 0;
         this.etBehandlung = false;
-        this.euterentzuendung = false;
+        this.euterentzuendung  = false;
+        this.impfungKaelberflechte = false;
+        this.klauenerkrankung = false;
+        this.nabelerkankung = false;
+        this.nachgeburtsverhaltung = false;
+        this.sonderbehandlung = false;
+        this.trockenstellen = false;
+    }
+
+    public Kuh(int ohrmarke, Boolean etBehandlung){
+        this.ohrmarke = ohrmarke;
+        this.etBehandlung = etBehandlung;
+        this.euterentzuendung  = false;
         this.impfungKaelberflechte = false;
         this.klauenerkrankung = false;
         this.nabelerkankung = false;
@@ -26,8 +38,8 @@ public class Kuh {
     }
 
     //full constructor
-    public Kuh(int ohrmarke, boolean etBehandlung, boolean euterentzuendung, boolean impfungKaelberflechte,
-               boolean klauenerkrankung, boolean nabelerkankung, boolean nachgeburtsverhaltung, boolean sonderbehandlung, boolean trockenstellen) {
+    public Kuh(int ohrmarke, Boolean etBehandlung, boolean euterentzuendung, boolean impfungKaelberflechte,
+               boolean klauenerkrankung, boolean nabelerkankung, boolean nachgeburtsverhaltung, boolean sonderbehandlung, boolean trockenstellen){
         this.ohrmarke = ohrmarke;
         this.etBehandlung = etBehandlung;
         this.euterentzuendung = euterentzuendung;
@@ -39,7 +51,6 @@ public class Kuh {
         this.trockenstellen = trockenstellen;
     }
 
-
     @PrimaryKey
     private int ohrmarke;
     private Boolean etBehandlung;
@@ -50,15 +61,8 @@ public class Kuh {
     private Boolean nachgeburtsverhaltung;
     private Boolean sonderbehandlung;
     private Boolean trockenstellen;
-    private int id;
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
     public int getOhrmarke() {
         return ohrmarke;
     }
@@ -127,7 +131,7 @@ public class Kuh {
         this.trockenstellen = trockenstellen;
     }
 
-    public void setOhrmarke(int ohrmarke) {
+    public void setOhrmarke(int ohrmarke){
         this.ohrmarke = ohrmarke;
     }
 }

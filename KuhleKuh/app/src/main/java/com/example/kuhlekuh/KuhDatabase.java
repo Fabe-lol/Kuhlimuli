@@ -25,7 +25,6 @@ public abstract class KuhDatabase extends RoomDatabase {
                     .build();
         }
         return instance;
-
     }
 
     private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback(){
@@ -48,5 +47,4 @@ public abstract class KuhDatabase extends RoomDatabase {
             return null;
         }
     }
-
 }
