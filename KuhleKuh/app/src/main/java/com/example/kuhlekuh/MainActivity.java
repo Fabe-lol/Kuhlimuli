@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         kuhViewModel.getGetAll().observe(this, new Observer<List<Kuh>>() {
             @Override
             public void onChanged(List<Kuh> kuhs) {
-                adapter.setKuh(kuhs);
+                adapter.submitList(kuhs);
             }
         });
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
