@@ -1,9 +1,14 @@
 package com.example.kuhlekuh;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.Query;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Kuh {
@@ -45,158 +50,14 @@ public class Kuh {
     private Boolean nachgeburtsverhaltung;
     private Boolean sonderbehandlung;
     private Boolean trockenstellen;
-    private int switchAddOrEdit;
-    private Date dateStartEtBehandlung;
-    private Date dateEndEtBehandlung;
-    private Date dateStartEuterenzuendung;
-    private Date dateEndEuterentzuendung;
-    private Date dateStartImpfungKaelberflechte;
-    private Date dateEndImpfungKaelberflechte;
-    private Date dateStartKlauenerkrankung;
-    private Date dateEndKlauenerkrankung;
-    private Date dateStartNabelerkrankung;
-    private Date dateEndNabelerkrankung;
-    private Date dateStartNachgeburtsverhaltung;
-    private Date dateEndNachgeburtsverhaltung;
-    private Date dateStartSonderbehandlung;
-    private Date dateEndSonderbehandlung;
-    private Date dateStartTrockenstellen;
-    private Date dateEndTrockenstellen;
+    private int id;
 
-    public Date getDateStartEtBehandlung() {
-        return dateStartEtBehandlung;
+    public int getId() {
+        return id;
     }
 
-    public void setDateStartEtBehandlung(Date dateStartEtBehandlung) {
-        this.dateStartEtBehandlung = dateStartEtBehandlung;
-    }
-
-    public Date getDateEndEtBehandlung() {
-        return dateEndEtBehandlung;
-    }
-
-    public void setDateEndEtBehandlung(Date dateEndEtBehandlung) {
-        this.dateEndEtBehandlung = dateEndEtBehandlung;
-    }
-
-    public Date getDateStartEuterenzuendung() {
-        return dateStartEuterenzuendung;
-    }
-
-    public void setDateStartEuterenzuendung(Date dateStartEuterenzuendung) {
-        this.dateStartEuterenzuendung = dateStartEuterenzuendung;
-    }
-
-    public Date getDateEndEuterentzuendung() {
-        return dateEndEuterentzuendung;
-    }
-
-    public void setDateEndEuterentzuendung(Date dateEndEuterentzuendung) {
-        this.dateEndEuterentzuendung = dateEndEuterentzuendung;
-    }
-
-    public Date getDateStartImpfungKaelberflechte() {
-        return dateStartImpfungKaelberflechte;
-    }
-
-    public void setDateStartImpfungKaelberflechte(Date dateStartImpfungKaelberflechte) {
-        this.dateStartImpfungKaelberflechte = dateStartImpfungKaelberflechte;
-    }
-
-    public Date getDateEndImpfungKaelberflechte() {
-        return dateEndImpfungKaelberflechte;
-    }
-
-    public void setDateEndImpfungKaelberflechte(Date dateEndImpfungKaelberflechte) {
-        this.dateEndImpfungKaelberflechte = dateEndImpfungKaelberflechte;
-    }
-
-    public Date getDateStartKlauenerkrankung() {
-        return dateStartKlauenerkrankung;
-    }
-
-    public void setDateStartKlauenerkrankung(Date dateStartKlauenerkrankung) {
-        this.dateStartKlauenerkrankung = dateStartKlauenerkrankung;
-    }
-
-    public Date getDateEndKlauenerkrankung() {
-        return dateEndKlauenerkrankung;
-    }
-
-    public void setDateEndKlauenerkrankung(Date dateEndKlauenerkrankung) {
-        this.dateEndKlauenerkrankung = dateEndKlauenerkrankung;
-    }
-
-    public Date getDateStartNabelerkrankung() {
-        return dateStartNabelerkrankung;
-    }
-
-    public void setDateStartNabelerkrankung(Date dateStartNabelerkrankung) {
-        this.dateStartNabelerkrankung = dateStartNabelerkrankung;
-    }
-
-    public Date getDateEndNabelerkrankung() {
-        return dateEndNabelerkrankung;
-    }
-
-    public void setDateEndNabelerkrankung(Date dateEndNabelerkrankung) {
-        this.dateEndNabelerkrankung = dateEndNabelerkrankung;
-    }
-
-    public Date getDateStartNachgeburtsverhaltung() {
-        return dateStartNachgeburtsverhaltung;
-    }
-
-    public void setDateStartNachgeburtsverhaltung(Date dateStartNachgeburtsverhaltung) {
-        this.dateStartNachgeburtsverhaltung = dateStartNachgeburtsverhaltung;
-    }
-
-    public Date getDateEndNachgeburtsverhaltung() {
-        return dateEndNachgeburtsverhaltung;
-    }
-
-    public void setDateEndNachgeburtsverhaltung(Date dateEndNachgeburtsverhaltung) {
-        this.dateEndNachgeburtsverhaltung = dateEndNachgeburtsverhaltung;
-    }
-
-    public Date getDateStartSonderbehandlung() {
-        return dateStartSonderbehandlung;
-    }
-
-    public void setDateStartSonderbehandlung(Date dateStartSonderbehandlung) {
-        this.dateStartSonderbehandlung = dateStartSonderbehandlung;
-    }
-
-    public Date getDateEndSonderbehandlung() {
-        return dateEndSonderbehandlung;
-    }
-
-    public void setDateEndSonderbehandlung(Date dateEndSonderbehandlung) {
-        this.dateEndSonderbehandlung = dateEndSonderbehandlung;
-    }
-
-    public Date getDateStartTrockenstellen() {
-        return dateStartTrockenstellen;
-    }
-
-    public void setDateStartTrockenstellen(Date dateStartTrockenstellen) {
-        this.dateStartTrockenstellen = dateStartTrockenstellen;
-    }
-
-    public Date getDateEndTrockenstellen() {
-        return dateEndTrockenstellen;
-    }
-
-    public void setDateEndTrockenstellen(Date dateEndTrockenstellen) {
-        this.dateEndTrockenstellen = dateEndTrockenstellen;
-    }
-
-    public int getSwitchAddOrEdit() {
-        return switchAddOrEdit;
-    }
-
-    public void setSwitchAddOrEdit(int switchAddOrEdit) {
-        this.switchAddOrEdit = switchAddOrEdit;
+    public void setId(int id) {
+        this.id = id;
     }
     public int getOhrmarke() {
         return ohrmarke;
