@@ -6,14 +6,37 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
-    private List<Kuh> kuh = new ArrayList<>();
+public class KuhAdapter extends ListAdapter<Kuh, KuhAdapter.KuhHolder> {
     private OnItemClickListener listener;
+
+    public KuhAdapter() {
+        super(DIFF_CALLBACK);
+    }
+    private static final DiffUtil.ItemCallback<Kuh> DIFF_CALLBACK = new DiffUtil.ItemCallback<Kuh>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull Kuh oldItem, @NonNull Kuh newItem) {
+            return oldItem.getSwitchAddOrEdit() == newItem.getSwitchAddOrEdit();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull Kuh oldItem, @NonNull Kuh newItem) {
+            return oldItem.getOhrmarke() == newItem.getOhrmarke() &&
+                    oldItem.getEtBehandlung().equals(newItem.getEtBehandlung()) &&
+                    oldItem.getEuterentzuendung().equals(newItem.getEuterentzuendung()) &&
+                    oldItem.getImpfungKaelberflechte().equals(newItem.getImpfungKaelberflechte()) &&
+                    oldItem.getKlauenerkrankung().equals(newItem.getKlauenerkrankung()) &&
+                    oldItem.getNabelerkankung().equals(newItem.getNabelerkankung()) &&
+                    oldItem.getNachgeburtsverhaltung().equals(newItem.getNachgeburtsverhaltung()) &&
+                    oldItem.getTrockenstellen().equals(newItem.getTrockenstellen()) &&
+                    oldItem.getSonderbehandlung().equals(newItem.getSonderbehandlung())
+
+                    ;
+        }
+    };
 
     @NonNull
     @Override
@@ -25,7 +48,7 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull KuhHolder holder, int position) {
-        Kuh currentKuh = kuh.get(position);
+        Kuh currentKuh = getItem(position);
 
         //  ? "ja" : "nein" ist eine Kurzform von if-else
         holder.textViewOhrmarke.setText(String.valueOf(currentKuh.getOhrmarke()));
@@ -39,18 +62,9 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
         holder.textViewTrockenst.setText(currentKuh.getTrockenstellen() ? "ja" : "nein");
     }
 
-    @Override
-    public int getItemCount() {
-        return kuh.size();
-    }
-
-    public void setKuh(List<Kuh> kuhs) {
-        this.kuh = kuhs;
-        notifyDataSetChanged();
-    }
 
     public Kuh getKuhAt(int position) {
-        return kuh.get(position);
+        return getItem(position);
     }
 
     class KuhHolder extends RecyclerView.ViewHolder {
@@ -81,7 +95,7 @@ public class KuhAdapter extends RecyclerView.Adapter<KuhAdapter.KuhHolder> {
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     if (listener != null && position != RecyclerView.NO_POSITION) {
-                        listener.onItemClick(kuh.get(position));
+                        listener.onItemClick(getItem(position));
                     }
                 }
             });

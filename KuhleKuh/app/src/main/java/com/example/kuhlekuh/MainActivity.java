@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         kuhViewModel.getGetAll().observe(this, new Observer<List<Kuh>>() {
             @Override
             public void onChanged(List<Kuh> kuhs) {
-                adapter.setKuh(kuhs);
+                adapter.submitList(kuhs);
             }
         });
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(Kuh kuh) {
                 Intent intent = new Intent(MainActivity.this, AddEditKuhActivity.class);
-                intent.putExtra(AddEditKuhActivity.EXTRA_ID, kuh.getId());
+                intent.putExtra(AddEditKuhActivity.EXTRA_ID, kuh.getSwitchAddOrEdit());
                 intent.putExtra(AddEditKuhActivity.EXTRA_OHRMARKE, kuh.getOhrmarke());
                 intent.putExtra(AddEditKuhActivity.EXTRA_CHECKBOX_ET, kuh.getEtBehandlung());
                 intent.putExtra(AddEditKuhActivity.EXTRA_CHECKBOX_EUTER, kuh.getEuterentzuendung());
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
             Kuh kuh = new Kuh(iOhrmarke,bEtbehandlung, bEuterentzuendung, bImpfungKaelberflechte,
                     bKlauenerkrankung, bNabelerkankung, bNachgeburtsverhaltung, bSonderbehandlung,
                     bTrockenstellen);
-            kuh.setId(id);
+            kuh.setSwitchAddOrEdit(id);
             kuhViewModel.updateKuh(kuh);
             Toast.makeText(this, "Kuh updated", Toast.LENGTH_SHORT).show();
         }
