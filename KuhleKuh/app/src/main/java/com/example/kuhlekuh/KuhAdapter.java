@@ -10,9 +10,6 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class KuhAdapter extends ListAdapter<Kuh, KuhAdapter.KuhHolder> {
     private OnItemClickListener listener;
 
@@ -22,7 +19,7 @@ public class KuhAdapter extends ListAdapter<Kuh, KuhAdapter.KuhHolder> {
     private static final DiffUtil.ItemCallback<Kuh> DIFF_CALLBACK = new DiffUtil.ItemCallback<Kuh>() {
         @Override
         public boolean areItemsTheSame(@NonNull Kuh oldItem, @NonNull Kuh newItem) {
-            return oldItem.getId() == newItem. getId();
+            return oldItem.getSwitchAddOrEdit() == newItem.getSwitchAddOrEdit();
         }
 
         @Override
