@@ -10,8 +10,21 @@ import androidx.room.Query;
 import java.util.Date;
 import java.util.List;
 
+
 @Entity
 public class Kuh {
+
+    @PrimaryKey
+    private int ohrmarke;
+    private Boolean etBehandlung;
+    private Boolean euterentzuendung;
+    private Boolean impfungKaelberflechte;
+    private Boolean klauenerkrankung;
+    private Boolean nabelerkankung;
+    private Boolean nachgeburtsverhaltung;
+    private Boolean sonderbehandlung;
+    private Boolean trockenstellen;
+
     //default constructor
     public Kuh(){
         this.ohrmarke = 0;
@@ -50,18 +63,6 @@ public class Kuh {
         this.sonderbehandlung = sonderbehandlung;
         this.trockenstellen = trockenstellen;
     }
-
-    @PrimaryKey
-    private int ohrmarke;
-    private Boolean etBehandlung;
-    private Boolean euterentzuendung;
-    private Boolean impfungKaelberflechte;
-    private Boolean klauenerkrankung;
-    private Boolean nabelerkankung;
-    private Boolean nachgeburtsverhaltung;
-    private Boolean sonderbehandlung;
-    private Boolean trockenstellen;
-
 
     public int getOhrmarke() {
         return ohrmarke;

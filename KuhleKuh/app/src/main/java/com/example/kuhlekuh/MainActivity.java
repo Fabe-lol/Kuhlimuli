@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     //KuhDatabase kuhDb = Room.databaseBuilder(getApplicationContext(), KuhDatabase.class, "database-name").build();
 
-// Neues KuhViewModel
+    // Neues KuhViewModel
     private KuhViewModel kuhViewModel;
     public static final int ADD_KUH_REQUEST =1;
     @Override
@@ -76,28 +76,47 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ADD_KUH_REQUEST && resultCode == RESULT_OK){
-            String sOhrmarke = data.getStringExtra(AddKuhActivity.EXTRA_OHRMARKE);
-            boolean bEtbehandlung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_ET, false);
-            boolean bEuterentzuendung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_EUTER, false);
-            boolean bImpfungKaelberflechte = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_IMPFUNG, false);
-            boolean bKlauenerkrankung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_KLAUEN, false);
-            boolean bNabelerkankung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_NABEL, false);
-            boolean bNachgeburtsverhaltung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_NACHGEB, false);
-            boolean bSonderbehandlung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_SONDER, false);
-            boolean bTrockenstellen = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_TROCKENST, false);
-
-            int iOhrmarke = Integer.parseInt(sOhrmarke);
-
-            Kuh kuh = new Kuh(iOhrmarke,bEtbehandlung, bEuterentzuendung, bImpfungKaelberflechte,
-                    bKlauenerkrankung, bNabelerkankung, bNachgeburtsverhaltung, bSonderbehandlung,
-                    bTrockenstellen);
-
-            kuhViewModel.insertKuh(kuh);
-            Toast.makeText(this, "Kuh Saved", Toast.LENGTH_SHORT).show();
-        }
-        else {
+            Kuh kuh = decodeData(data);
+            if (kuhExists(kuh)){
+                kuhViewModel.updateKuh(kuh);
+                Toast.makeText(this, "Kuh Updated", Toast.LENGTH_SHORT).show();
+            } else{
+                kuhViewModel.insertKuh(kuh);
+                Toast.makeText(this, "New Kuh Saved", Toast.LENGTH_SHORT).show();
+            }
+        } else {
             Toast.makeText(this, "Kuh not saved", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public boolean kuhExists(Kuh kuh){
+        //aus Effizienzgründen sollte das Durchsuchen in die Asynctask aufgenommen werden
+        List<Kuh> kuhList = kuhViewModel.getGetAll().getValue();
+        for (int i = 0; i < kuhList.size(); i++){
+            Kuh kuhFromList = kuhList.get(i);
+            if (kuhFromList.getOhrmarke() == kuh.getOhrmarke()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Kuh decodeData(@Nullable Intent data){
+        String sOhrmarke = data.getStringExtra(AddKuhActivity.EXTRA_OHRMARKE);
+        int iOhrmarke = Integer.parseInt(sOhrmarke);
+        boolean bEtbehandlung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_ET, false);
+        boolean bEuterentzuendung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_EUTER, false);
+        boolean bImpfungKaelberflechte = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_IMPFUNG, false);
+        boolean bKlauenerkrankung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_KLAUEN, false);
+        boolean bNabelerkankung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_NABEL, false);
+        boolean bNachgeburtsverhaltung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_NACHGEB, false);
+        boolean bSonderbehandlung = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_SONDER, false);
+        boolean bTrockenstellen = data.getBooleanExtra(AddKuhActivity.EXTRA_CHECKBOX_TROCKENST, false);
+
+        Kuh kuh = new Kuh(iOhrmarke, bEtbehandlung, bEuterentzuendung, bImpfungKaelberflechte,
+                bKlauenerkrankung, bNabelerkankung, bNachgeburtsverhaltung, bSonderbehandlung,
+                bTrockenstellen);
+        return kuh;
     }
 
     @Override

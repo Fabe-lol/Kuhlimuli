@@ -96,7 +96,7 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
         });
     }
 
-    private void saveKuh(){
+    private void sendDataToMainActivity(){
         String ohrmarke = editOhrmarke.getText().toString();
         boolean bEtBehandlung = etBehandlung.isChecked();
         boolean bEuterentzuendung = euterentzuendung.isChecked();
@@ -139,7 +139,7 @@ public class AddKuhActivity extends AppCompatActivity implements DatePickerDialo
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.save_kuh:
-                saveKuh();
+                sendDataToMainActivity();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
