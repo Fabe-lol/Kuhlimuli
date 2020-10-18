@@ -77,13 +77,28 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ADD_KUH_REQUEST && resultCode == RESULT_OK){
             Kuh kuh = decodeData(data);
-
-            kuhViewModel.insertKuh(kuh);
-            Toast.makeText(this, "Kuh Saved", Toast.LENGTH_SHORT).show();
-        }
-        else {
+            if (kuhExists(kuh)){
+                kuhViewModel.updateKuh(kuh);
+                Toast.makeText(this, "Kuh Updated", Toast.LENGTH_SHORT).show();
+            } else{
+                kuhViewModel.insertKuh(kuh);
+                Toast.makeText(this, "New Kuh Saved", Toast.LENGTH_SHORT).show();
+            }
+        } else {
             Toast.makeText(this, "Kuh not saved", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public boolean kuhExists(Kuh kuh){
+        //aus Effizienzgründen sollte das Durchsuchen in die Asynctask aufgenommen werden
+        List<Kuh> kuhList = kuhViewModel.getGetAll().getValue();
+        for (int i = 0; i < kuhList.size(); i++){
+            Kuh kuhFromList = kuhList.get(i);
+            if (kuhFromList.getOhrmarke() == kuh.getOhrmarke()){
+                return true;
+            }
+        }
+        return false;
     }
 
     public Kuh decodeData(@Nullable Intent data){
